@@ -1,0 +1,107 @@
+﻿body {
+    padding-top: 0px !important;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    margin-top: 55px;
+}
+
+.main-content {
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.cart {
+    padding: 5px;
+    margin-left: 5px;
+    font-size: 20px;
+}
+
+.btn {
+    border-radius: 0px;
+}
+
+/*.search {
+    padding: 5px;
+    margin-left: 5px;
+    font-size: 20px;
+}*/
+
+.search input {
+    border-radius: 0px !important;
+}
+
+.search .btn {
+    color: #fff;
+    border-color: #fff;
+}
+
+.login {
+    font-weight: bold;
+}
+
+.login a {
+    display: block;
+    margin-left: 15px;
+    font-size: 12px;
+}
+
+.bg-light {
+    background-color: #3498db !important;
+}
+
+.navigation-bar .navbar a {
+    color: #fff;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #fff;
+}
+
+.ugens-ret {
+    margin-top: 25px;
+    display: block;
+    width: 100%;
+    overflow: hidden;
+}
+
+    .ugens-ret .btn {
+        background-color: #2ecc71;
+        color: #fff;
+        border-color: #2ecc71;
+    }
+
+        .ugens-ret .btn:hover {
+            background-color: #28a745;
+            border-color: #28a745;
+        }
+
+.banner {
+    background-color: #ecf0f1;
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+    .banner .btn {
+        border-color: #f39c12;
+        color: #fff;
+        background-color: #f39c12;
+    }
+
+        .banner .btn:hover {
+            background-color: #e67e22;
+            border-color: #e67e22;
+        }
+
+footer {
+    margin-top: 50px;
+}
+

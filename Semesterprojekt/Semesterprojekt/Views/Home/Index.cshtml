@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="banner">
+    <h1>Slut med at smøre madpakke</h1>
+    <h3>Bestil din frokost online</h3>
+    <h4>Hent maden i frikvarteret</h4>
+    <button class="btn btn-outline-success my-2 my-sm-0" onclick="location.href='@Url.Action("Menu", "Home")'" type="submit">Se menu</button>
+</div>
+
+<div class="container">
+    <div class="main-content">
+        <div class="ugens-ret">
+            <h2>Ugens ret: Pizza Pepperoni</h2>
+            <br />
+            <img src="~/Content/Images/pizza-1.jpg" class="img-fluid" alt="PIZZA">
+            <br />
+            <br />
+            <p>Lorem Ipsum er ganske enkelt fyldtekst fra print- og typografiindustrien. Lorem Ipsum har været standard fyldtekst siden 1500-tallet, hvor en ukendt trykker sammensatte en tilfældig spalte for at trykke en bog til sammenligning af forskellige skrifttyper. Lorem Ipsum har ikke alene overlevet fem århundreder, men har også vundet indpas i elektronisk typografi uden væsentlige ændringer. Sætningen blev gjordt kendt i 1960'erne med lanceringen af Letraset-ark, som indeholdt afsnit med Lorem Ipsum, og senere med layoutprogrammer som Aldus PageMaker, som også indeholdt en udgave af Lorem Ipsum.</p>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Bestil nu</button>
+        </div>
+    </div>
+</div>
+
