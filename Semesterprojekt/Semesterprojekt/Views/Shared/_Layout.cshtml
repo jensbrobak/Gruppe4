@@ -14,7 +14,7 @@
     <div class="navigation-bar">
         <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light">
             <div class="container">
-                <div class="navbar-brand">@Html.ActionLink("LunchTime", "Index")</div>
+                <div class="navbar-brand">@Html.ActionLink("LunchTime", "Index", "Home")</div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -23,12 +23,12 @@
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
                             <div class="nav-link">
-                                @Html.ActionLink("Menu", "Menu")
+                                @Html.ActionLink("Menu", "Menu", "Home")
                             </div>
                         </li>
                         <li class="nav-item">
                             <div class="nav-link">
-                                @Html.ActionLink("Åbningstider", "Opening_hours")
+                                @Html.ActionLink("Åbningstider", "Opening_hours", "Home")
                             </div>
                         </li>
                         @*<li class="nav-item dropdown">
@@ -49,10 +49,10 @@
                             <a href="#"><i class="fa fa-search" aria-hidden="true"></i></a>
                         </div>*@
                         <div class="cart">
-                            <a href="#"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></a>
+                            <a href="@Url.Action("Cart", "Cart")"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></a>
                         </div>
                         <div class="login">
-                            <a href="#">Log ind med UCN</a>
+                            <a href="@Url.Action("Login", "Login")">Log ind med UCN</a>
                         </div>
                     </form>
                 </div>
@@ -83,7 +83,7 @@
 
     <div class="container">
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - LunchTime: University College Nordjylland</p>
         </footer>
     </div>
 
