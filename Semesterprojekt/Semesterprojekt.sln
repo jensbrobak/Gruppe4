@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.16
+VisualStudioVersion = 15.0.27004.2005
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Semesterprojekt", "Semesterprojekt\Semesterprojekt.csproj", "{8B59CA73-AA70-471F-9A04-9FF256D0FC99}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCFHost", "WCFHost\WCFHost.csproj", "{CAF4F130-9F1C-40D6-B660-6E6CFA8E9F87}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{8B59CA73-AA70-471F-9A04-9FF256D0FC99}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B59CA73-AA70-471F-9A04-9FF256D0FC99}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8B59CA73-AA70-471F-9A04-9FF256D0FC99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAF4F130-9F1C-40D6-B660-6E6CFA8E9F87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAF4F130-9F1C-40D6-B660-6E6CFA8E9F87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAF4F130-9F1C-40D6-B660-6E6CFA8E9F87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAF4F130-9F1C-40D6-B660-6E6CFA8E9F87}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
