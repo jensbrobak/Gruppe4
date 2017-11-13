@@ -11,6 +11,7 @@
 </head>
 <body>
 
+    @*START NAVIGATIONS BAR*@
     <div class="navigation-bar">
         <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light">
             <div class="container">
@@ -59,6 +60,7 @@
             </div>
         </nav>
     </div>
+    @*SLUT NAVIGATIONS BAR*@
     
     @*<div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
@@ -77,15 +79,19 @@
         </div>
     </div>*@
 
+    @*START CONTENT*@
     <div class="container-full body-content">
         @RenderBody()
     </div>
+    @*SLUT CONTENT*@
 
+    @*START FOOTER*@
     <div class="container">
         <footer>
             <p>&copy; @DateTime.Now.Year - LunchTime: University College Nordjylland</p>
         </footer>
     </div>
+    @*SLUT FOOTER*@
 
     @Scripts.Render("~/bundles/jquery")
     <script>https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js</script>
