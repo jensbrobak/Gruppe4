@@ -1,0 +1,171 @@
+﻿body {
+    padding-top: 0px !important;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    margin-top: 75px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.cart {
+    padding: 5px;
+    margin-left: 5px;
+    font-size: 20px;
+}
+
+.btn {
+    border-radius: 0px;
+}
+
+/*.search {
+    padding: 5px;
+    margin-left: 5px;
+    font-size: 20px;
+}*/
+
+.search input {
+    border-radius: 0px !important;
+}
+
+.search .btn {
+    color: #fff;
+    border-color: #fff;
+}
+
+.login {
+    font-weight: bold;
+}
+
+.login a {
+    display: block;
+    margin-left: 15px;
+    font-size: 12px;
+}
+
+.bg-light {
+    background-color: #FF9400 !important;
+    box-shadow: 0 1px 2px rgba(0,0,0,.1);
+}
+
+.navigation-bar .navbar a {
+    color: #fff;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #fff;
+}
+
+.btn-outline-success {
+    background-color: #2ecc71;
+    color: #fff;
+    border-color: #2ecc71;
+}
+
+.btn-outline-success:hover {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.ugens-ret {
+    float: left;
+    width: 100%;
+    overflow: hidden;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    color: #fff;
+    background-image: url(../Content/Images/ugens-ret-bg.jpg);
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+}
+
+.ugens-ret .info {
+    float: left;
+    margin-left: 20px;
+}
+
+.ugens-ret img {
+    float: left;
+    border-radius: 100px;
+}
+        
+        .ugens-ret h2 {
+            padding-bottom: 10px;
+            font-weight: 400;
+        }
+
+.banner {
+    margin-top: -20px;
+    background-image: url(../Content/Images/food-bg.jpg);
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    /*background-color: #2c3e50;*/
+    text-align: center;
+    padding-top: 180px;
+    padding-bottom: 180px;
+    box-shadow: 0 1px 2px rgba(0,0,0,.1);
+    color: #fff;
+}
+
+.banner h1 {
+    font-weight: 700;
+}
+
+.banner h3 {
+    font-weight: 300;
+}
+
+    .banner .btn {
+        border-color: #f39c12;
+        color: #fff;
+        background-color: #f39c12;
+    }
+
+        .banner .btn:hover {
+            background-color: #e67e22;
+            border-color: #e67e22;
+        }
+
+.product {
+    float: left;
+    padding: 10px;
+    width: 100%;
+    background-color: #ecf0f1;
+    border-bottom: 1px solid #cacaca;
+    margin-top: 20px;
+}
+
+.product img {
+    float: left;
+}
+
+.product-info {
+    float: left;
+    margin-left: 10px;
+}
+
+.opening-hours {
+    float: left;
+}
+
+.opening-hours img {
+    float: left;
+}
+
+.opening-hours .info {
+    float: left;
+    padding-left: 20px;
+}
+
+footer {
+    float: left;
+    margin-top: 50px;
+}
+
