@@ -99,6 +99,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\Images\DSC_6144-Edit.jpg" />
     <Content Include="Content\Images\food-bg.jpg" />
     <Content Include="Content\Images\pizza-1.jpg" />
     <Content Include="Content\Images\pizza-2.jpg" />
