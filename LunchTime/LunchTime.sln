@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.16
+VisualStudioVersion = 15.0.27004.2008
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LunchTime", "LunchTime\LunchTime.csproj", "{0A00DF55-99C9-4E6F-963A-772107F3735B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LunchTime", "LunchTime\LunchTime.csproj", "{295F9DDD-1A2F-4E7E-B798-37CE676E9C80}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0A00DF55-99C9-4E6F-963A-772107F3735B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0A00DF55-99C9-4E6F-963A-772107F3735B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0A00DF55-99C9-4E6F-963A-772107F3735B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0A00DF55-99C9-4E6F-963A-772107F3735B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{295F9DDD-1A2F-4E7E-B798-37CE676E9C80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{295F9DDD-1A2F-4E7E-B798-37CE676E9C80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{295F9DDD-1A2F-4E7E-B798-37CE676E9C80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{295F9DDD-1A2F-4E7E-B798-37CE676E9C80}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {C24D4198-C28F-4C15-8598-24EDFCCDDD2D}
+		SolutionGuid = {4309BEEF-958F-4C35-80B0-2728FC9DF982}
 	EndGlobalSection
 EndGlobal
