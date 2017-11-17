@@ -21,7 +21,7 @@ namespace Wcf.Data
 
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
 
-            modelBuilder.Entity<Order>().Ignore(o => o.Id );
+           // modelBuilder.Entity<Order>().Ignore(o => o.Id );
 
         }
     }
