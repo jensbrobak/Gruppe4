@@ -35,7 +35,7 @@ namespace Wcf.Services
         {
             var oQuery = _Context.Orders.Where(o => o.Id == id);
 
-            oQuery.First().OrderStatusId = '1';
+            oQuery.First().OrderStatusId = 1;
 
             _Context.SaveChanges();
         }
