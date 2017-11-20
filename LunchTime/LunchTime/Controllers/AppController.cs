@@ -74,6 +74,11 @@ namespace LunchTime.Controllers
             return View(results);
         }
 
+        public IActionResult Cart()
+        {
+            return View();
+        }
+
         [HttpGet("about")]
         public IActionResult About()
         {

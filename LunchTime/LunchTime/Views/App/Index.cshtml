@@ -1,62 +1,29 @@
 ﻿@{ 
     ViewBag.Title = "Home Page";
 }
-    <div class="row">
-        <div class="col-md-9">
-            <div class="product-info">
-                <h3>Dagens ret</h3>
-                <img src="~/img/pizza-3.jpg" />
-                <ul class="product-props">
-                    <li>Krydret tomat pizza</li>
-                    <li>35,50 kr</li>
-                </ul>
-            </div>
 
-            @*<div id="theForm">
-                <form>
-                    <label>Name:</label>
-                    <br />
-                    <input />
-                    <br />
-                    <label>Email:</label>
-                    <br />
-                    <input type="email" />
-                    <br />
-                    <label>Subject</label>
-                    <br />
-                    <input type="text" />
-                    <br />
-                    <label>Message:</label>
-                    <br />
-                    <textarea rows="4"></textarea>
-                    <br />
-                    <input type="submit" value="Send Message" />
-                </form>
-            </div>*@
+<div class="banner">
+    <h1>Slut med at smøre madpakke</h1>
+    <h3>Bestil din frokost online. Hent maden i frikvarteret.</h3>
+    <button class="btn btn-outline-success my-2 my-sm-0" onclick="location.href='@Url.Action("Shop", "App")'" type="submit">Se menu</button>
+</div>
 
-            
-        </div>
-        <div class="col-md-3">
-            <div>
-                <div id="loginToggle">Login</div>
-                <form class="popup-form">
-                    <div>
-                        <label>Username:</label>
-                        <input />
-                    </div>
-                    <div>
-                        <label>Password:</label>
-                        <input type="password" />
-                    </div>
-                    <div>
-                        <input type="checkbox" />
-                        <label>Remember Me?</label>
-                    </div>
-                    <div>
-                        <input type="submit" value="Login" />
-                    </div>
-                </form>
-            </div>
+<div class="ugens-ret">
+    <div class="container">
+        <img src="~/img/pizza-3.jpg" class="img-fluid" alt="PIZZA">
+        <div class="info">
+            <h2>Ugens ret: Pizza Pepperoni</h2>
+            <h4>DKK 50,-</h4>
+            <br />
+            <p>Lækker pizza med sprød bund, mozerella ost, tomater, løg og pepperoni.</p>
+            <p>Til dig som går op i sundhed og velvære, men stadig elsker pizza.</p>
+            <br />
+            <p>Kalorier: 587</p>
+            <p>Fedt: 10g</p>
+            <p>Sukker: 0g</p>
+            <br />
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Læg i kurv</button>
         </div>
     </div>
+</div>
 

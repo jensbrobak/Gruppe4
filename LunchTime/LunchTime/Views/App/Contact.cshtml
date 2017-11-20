@@ -2,41 +2,21 @@
 @{ 
     ViewBag.Title = "Contact Us";
 }
-@section scripts {
-    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
-    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
-}
 
-<div class="col-md-6 col-md-offset-3">
-    <div class="well">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly"></div>
-            
-            <div class="form-group">
-                <label asp-for="Name">Your Name:</label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Email">Email:</label>
-                <input type="email" asp-for="Email" class="form-control" />
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Subject">Subject</label>
-                <input type="text" asp-for="Subject" class="form-control" />
-                <span asp-validation-for="Subject" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Message">Message:</label>
-                <textarea rows="4" asp-for="Message" class="form-control"></textarea>
-                <span asp-validation-for="Message" class="text-danger"></span>
-                
-            </div>
-            <div class="form-group">
-                <button type="submit" class="btn btn-primary"><i class="fa fa-envelope"></i> Send Message</button>
-                <div class="success">@ViewBag.UserMessage</div>
-            </div>
-        </form>
+<div class="container">
+    <img src="~/img/DSC_6144-Edit.jpg" class="img-fluid" />
+    <div class="opening-hours">
+        <div class="info">
+            <h4>Åbningstider</h4>
+            <p>Mandag-torsdag: kl. 08:00-13:00</p>
+            <p>Fredag: kl. 08:00-12:00</p>
+            <br />
+            <h4>Kontakt</h4>
+            <p>Telefon: +45 98 12 57 83</p>
+            <p>E-mail: LunchTime@ucn.dk</p>
+            <br />
+            <h4>OBS</h4>
+            <p>Du bedes venligst bestille din mad senest<br /> 1 time før afhenting.</p>
+        </div>
     </div>
 </div>
