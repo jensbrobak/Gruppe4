@@ -10,20 +10,18 @@ using Microsoft.Practices.Prism.Commands;
 using Microsoft.Practices.Prism.Mvvm;
 using Wcf.Entities;
 using Wcf.Client.WcfServices;
+using Order = Wcf.Client.WcfServices.Order;
 
 namespace Wcf.Client
 {
     public class MainWindowViewModel : BindableBase
     {
-
+        private ObservableCollection<Order> _Orders;
         private ObservableCollection<OrderItemModel> _Items = new ObservableCollection<OrderItemModel>();
         private Order _CurrentOrder = new Order();
 
         public MainWindowViewModel()
         {
-            _CurrentOrder.OrderDate = DateTime.Now;
-            _CurrentOrder.OrderStatusId = 1;
-            SubmitOrderCommand = new DelegateCommand(OnSubmitOrder);
             if (!DesignerProperties.GetIsInDesignMode(new DependencyObject()))
             {
                 LoadProductsAndCustomers();
@@ -34,6 +32,12 @@ namespace Wcf.Client
         {
             get { return _Items; }
             set { SetProperty(ref _Items, value); }
+        }
+
+        public ObservableCollection<Order> Orders
+        {
+            get { return _Orders; }
+            set { SetProperty(ref _Orders, value); }
         }
 
         public Order CurrentOrder
@@ -50,7 +54,7 @@ namespace Wcf.Client
             WcfServiceClient proxy = new WcfServiceClient("NetTcpBinding_IWcfService");
             try
             {
-                Order = proxy.GetOrders();
+                Orders = proxy.GetOrders();
 
             }
             catch (Exception ex)

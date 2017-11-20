@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Wcf.Client.WcfServices {
+namespace Wcf.DesktopClient.WcfServiceReference {
     using System.Runtime.Serialization;
     using System;
     
@@ -35,7 +35,7 @@ namespace Wcf.Client.WcfServices {
         private System.DateTime OrderDateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Collections.ObjectModel.ObservableCollection<Wcf.Client.WcfServices.OrderItem> OrderItemsField;
+        private Wcf.DesktopClient.WcfServiceReference.OrderItem[] OrderItemsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int OrderStatusIdField;
@@ -103,7 +103,7 @@ namespace Wcf.Client.WcfServices {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Collections.ObjectModel.ObservableCollection<Wcf.Client.WcfServices.OrderItem> OrderItems {
+        public Wcf.DesktopClient.WcfServiceReference.OrderItem[] OrderItems {
             get {
                 return this.OrderItemsField;
             }
@@ -263,30 +263,225 @@ namespace Wcf.Client.WcfServices {
         }
     }
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="WcfServices.IWcfService")]
-    public interface IWcfService {
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Customer", Namespace="http://schemas.datacontract.org/2004/07/Wcf.Entities")]
+    [System.SerializableAttribute()]
+    public partial class Customer : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/GetOrders", ReplyAction="http://tempuri.org/IWcfService/GetOrdersResponse")]
-        System.Collections.ObjectModel.ObservableCollection<Wcf.Client.WcfServices.Order> GetOrders();
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/GetOrders", ReplyAction="http://tempuri.org/IWcfService/GetOrdersResponse")]
-        System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Wcf.Client.WcfServices.Order>> GetOrdersAsync();
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string CityField;
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/CloseOrder", ReplyAction="http://tempuri.org/IWcfService/CloseOrderResponse")]
-        void CloseOrder(Wcf.Client.WcfServices.Order order);
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string EmailField;
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/CloseOrder", ReplyAction="http://tempuri.org/IWcfService/CloseOrderResponse")]
-        System.Threading.Tasks.Task CloseOrderAsync(Wcf.Client.WcfServices.Order order);
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FirstNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FullNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Guid IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LastNameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PhoneField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string StateField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string StreetField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ZipField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string City {
+            get {
+                return this.CityField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CityField, value) != true)) {
+                    this.CityField = value;
+                    this.RaisePropertyChanged("City");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Email {
+            get {
+                return this.EmailField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.EmailField, value) != true)) {
+                    this.EmailField = value;
+                    this.RaisePropertyChanged("Email");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FirstName {
+            get {
+                return this.FirstNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FirstNameField, value) != true)) {
+                    this.FirstNameField = value;
+                    this.RaisePropertyChanged("FirstName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string FullName {
+            get {
+                return this.FullNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FullNameField, value) != true)) {
+                    this.FullNameField = value;
+                    this.RaisePropertyChanged("FullName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Guid Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LastName {
+            get {
+                return this.LastNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LastNameField, value) != true)) {
+                    this.LastNameField = value;
+                    this.RaisePropertyChanged("LastName");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Phone {
+            get {
+                return this.PhoneField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PhoneField, value) != true)) {
+                    this.PhoneField = value;
+                    this.RaisePropertyChanged("Phone");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string State {
+            get {
+                return this.StateField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StateField, value) != true)) {
+                    this.StateField = value;
+                    this.RaisePropertyChanged("State");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Street {
+            get {
+                return this.StreetField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StreetField, value) != true)) {
+                    this.StreetField = value;
+                    this.RaisePropertyChanged("Street");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Zip {
+            get {
+                return this.ZipField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ZipField, value) != true)) {
+                    this.ZipField = value;
+                    this.RaisePropertyChanged("Zip");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IWcfServiceChannel : Wcf.Client.WcfServices.IWcfService, System.ServiceModel.IClientChannel {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="WcfServiceReference.IWcfService")]
+    public interface IWcfService {
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/GetOrders", ReplyAction="http://tempuri.org/IWcfService/GetOrdersResponse")]
+        Wcf.DesktopClient.WcfServiceReference.Order[] GetOrders(System.Guid id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/GetOrders", ReplyAction="http://tempuri.org/IWcfService/GetOrdersResponse")]
+        System.Threading.Tasks.Task<Wcf.DesktopClient.WcfServiceReference.Order[]> GetOrdersAsync(System.Guid id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/GetCustomer", ReplyAction="http://tempuri.org/IWcfService/GetCustomerResponse")]
+        Wcf.DesktopClient.WcfServiceReference.Customer GetCustomer(System.Guid id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/GetCustomer", ReplyAction="http://tempuri.org/IWcfService/GetCustomerResponse")]
+        System.Threading.Tasks.Task<Wcf.DesktopClient.WcfServiceReference.Customer> GetCustomerAsync(System.Guid id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/CloseOrder", ReplyAction="http://tempuri.org/IWcfService/CloseOrderResponse")]
+        void CloseOrder(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/CloseOrder", ReplyAction="http://tempuri.org/IWcfService/CloseOrderResponse")]
+        System.Threading.Tasks.Task CloseOrderAsync(int id);
+    }
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    public interface IWcfServiceChannel : Wcf.DesktopClient.WcfServiceReference.IWcfService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class WcfServiceClient : System.ServiceModel.ClientBase<Wcf.Client.WcfServices.IWcfService>, Wcf.Client.WcfServices.IWcfService {
+    public partial class WcfServiceClient : System.ServiceModel.ClientBase<Wcf.DesktopClient.WcfServiceReference.IWcfService>, Wcf.DesktopClient.WcfServiceReference.IWcfService {
         
         public WcfServiceClient() {
         }
@@ -307,20 +502,28 @@ namespace Wcf.Client.WcfServices {
                 base(binding, remoteAddress) {
         }
         
-        public System.Collections.ObjectModel.ObservableCollection<Wcf.Client.WcfServices.Order> GetOrders() {
-            return base.Channel.GetOrders();
+        public Wcf.DesktopClient.WcfServiceReference.Order[] GetOrders(System.Guid id) {
+            return base.Channel.GetOrders(id);
         }
         
-        public System.Threading.Tasks.Task<System.Collections.ObjectModel.ObservableCollection<Wcf.Client.WcfServices.Order>> GetOrdersAsync() {
-            return base.Channel.GetOrdersAsync();
+        public System.Threading.Tasks.Task<Wcf.DesktopClient.WcfServiceReference.Order[]> GetOrdersAsync(System.Guid id) {
+            return base.Channel.GetOrdersAsync(id);
         }
         
-        public void CloseOrder(Wcf.Client.WcfServices.Order order) {
-            base.Channel.CloseOrder(order);
+        public Wcf.DesktopClient.WcfServiceReference.Customer GetCustomer(System.Guid id) {
+            return base.Channel.GetCustomer(id);
         }
         
-        public System.Threading.Tasks.Task CloseOrderAsync(Wcf.Client.WcfServices.Order order) {
-            return base.Channel.CloseOrderAsync(order);
+        public System.Threading.Tasks.Task<Wcf.DesktopClient.WcfServiceReference.Customer> GetCustomerAsync(System.Guid id) {
+            return base.Channel.GetCustomerAsync(id);
+        }
+        
+        public void CloseOrder(int id) {
+            base.Channel.CloseOrder(id);
+        }
+        
+        public System.Threading.Tasks.Task CloseOrderAsync(int id) {
+            return base.Channel.CloseOrderAsync(id);
         }
     }
 }

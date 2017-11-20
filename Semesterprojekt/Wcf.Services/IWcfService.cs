@@ -12,9 +12,15 @@ namespace Wcf.Services
     public interface IWcfService
     {
         [OperationContract]
-        List<Order> GetOrders();
+        List<Order> GetOrders(Guid id);
+
+        //[OperationContract]
+        //List<Customer> GetCustomers();
 
         [OperationContract]
-        void CloseOrder(Order order);
+        Customer GetCustomer(Guid id);
+
+        [OperationContract]
+        void CloseOrder(int id);
     }
 }

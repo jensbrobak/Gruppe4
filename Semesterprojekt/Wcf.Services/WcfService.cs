@@ -15,19 +15,38 @@ namespace Wcf.Services
     public class WcfService : IWcfService, IDisposable
     {
         readonly WcfDbContext _Context = new WcfDbContext();
-        public List<Order> GetOrders()
+       // public List<Customer> GetCustomers()
+        //{
+          //  return _Context.Customers.ToList();
+        //}
+
+        public Customer GetCustomer(Guid id)
         {
-            return _Context.Orders.ToList();
+            return _Context.Customer.Find(id);
+        }
+        public List<Order> GetOrders(Guid id)
+        {
+            var oQuery = _Context.Orders.Where(o => o.CustomerId == id);
+
+            return oQuery.ToList();
         }
         [OperationBehavior(TransactionScopeRequired = true)]
-        public void CloseOrder(Order order)
+        public void CloseOrder(int id)
         {
-            throw new NotImplementedException();
+            var oQuery = _Context.Orders.Where(o => o.Id == id);
+
+            oQuery.First().OrderStatusId = '1';
+
+            _Context.SaveChanges();
         }
 
         public void Dispose()
         {
             _Context.Dispose();
+        }
+        public List<Order> GetOrders()
+        {
+            throw new NotImplementedException();
         }
     }
 }

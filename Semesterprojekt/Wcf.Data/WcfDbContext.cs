@@ -11,6 +11,7 @@ namespace Wcf.Data
 {
     public class WcfDbContext : DbContext
     {
+        public DbSet<Customer> Customer { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderItem> OrderItems { get; set; }
         public DbSet<OrderStatus> OrderStatuses { get; set; }
@@ -21,7 +22,20 @@ namespace Wcf.Data
 
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
 
-           // modelBuilder.Entity<Order>().Ignore(o => o.Id );
+            // modelBuilder.Entity<Order>().Ignore(o => o.Id );
+
+            //modelBuilder.Entity<Customer>()
+             //.Property(c => c.Id) // Client must set the ID.
+            // .HasDatabaseGeneratedOption(System.ComponentModel.DataAnnotations.Schema.DatabaseGeneratedOption.None);
+
+          modelBuilder.Entity<Customer>().Ignore(c => c.FullName);
+
+
+         //   modelBuilder.Entity<Order>()
+           //     .Property(o => o.Id);
+
+            //modelBuilder.Entity<Order>()
+            //  .Property(o => o.Id);
 
         }
     }
