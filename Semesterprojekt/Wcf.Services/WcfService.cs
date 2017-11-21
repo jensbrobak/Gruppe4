@@ -15,10 +15,6 @@ namespace Wcf.Services
     public class WcfService : IWcfService, IDisposable
     {
         readonly WcfDbContext _Context = new WcfDbContext();
-       // public List<Customer> GetCustomers()
-        //{
-          //  return _Context.Customers.ToList();
-        //}
 
         public Customer GetCustomer(Guid id)
         {
@@ -35,7 +31,7 @@ namespace Wcf.Services
         {
             var oQuery = _Context.Orders.Where(o => o.Id == id);
 
-            oQuery.First().OrderStatusId = 1;
+            oQuery.First().OrderStatusId = 3;
 
             _Context.SaveChanges();
         }
@@ -43,10 +39,6 @@ namespace Wcf.Services
         public void Dispose()
         {
             _Context.Dispose();
-        }
-        public List<Order> GetOrders()
-        {
-            throw new NotImplementedException();
         }
     }
 }
