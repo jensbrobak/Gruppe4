@@ -9,28 +9,6 @@
 </head>
 <body>
 
-    @*
-    <div class="navbar navbar-inverse">
-        <header class="container">
-            <div class="navbar-header">
-                <div class="navbar-brand"><a asp-controller="App" asp-action="Index"><i class="fa fa-cutlery"></i>LunchTime</a></div>
-                <button class="navbar-toggle" data-toggle="collapse" data-target="#menu">&#9776;</button>
-            </div>
-            <div id="menu" class="collapse navbar-collapse">
-                <ul class="nav navbar-nav">
-                    <li><a asp-controller="App" asp-action="Shop">Shop</a></li>
-                    <li><a asp-controller="App" asp-action="Contact">Contact</a></li>
-                    <li><a asp-controller="App" asp-action="About">About</a></li>
-                    <li><a asp-controller="Account" asp-action="Login">Login</a></li>
-                </ul>
-            </div>
-        </header>
-    </div>
-        *@
-
-
-
-
     <div class="navigation-bar">
         <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light">
             <div class="container">
@@ -71,6 +49,7 @@
     <div class="container-full body-content">
         @RenderBody()
     </div>
+
     <div class="container">
         <footer>
             <p>&copy; @DateTime.Now.Year - LunchTime: University College Nordjylland</p>
