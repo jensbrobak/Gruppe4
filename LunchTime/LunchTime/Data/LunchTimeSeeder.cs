@@ -11,27 +11,49 @@ namespace LunchTime.Data
     public class LunchTimeSeeder
     {
         private readonly LunchTimeContext _ctx;
+        private readonly UserManager<Customer> _userManager;
 
-        public LunchTimeSeeder(LunchTimeContext ctx)
+        public LunchTimeSeeder(LunchTimeContext ctx, UserManager<Customer> userManager)
         {
             _ctx = ctx;
+            _userManager = userManager;
         }
 
-        public void Seed()
+        public async Task Seed()
         {
             _ctx.Database.EnsureCreated();
+
+            var user = await _userManager.FindByEmailAsync("j@mail.com");
+
+            if (user == null)
+            {
+                user = new Customer()
+                {
+                    Name = "John",
+                    UserName = "j@mail.com",
+                    Email = "j@mail.com",
+                    Currency = 30
+                };
+                var result = await _userManager.CreateAsync(user, "P@ssw0rd!");
+
+                if (result != IdentityResult.Success)
+                {
+                    throw new InvalidOperationException("Failed to create default user");
+                }
+
+            }
 
             if (!_ctx.Products.Any())
             {
                 //Need to create sample data
-               var customer1 = new Customer()
-               {
-                   Name = "John Smith",
-                   Email = "j@mail.com",
-                   Password = 123,
-                   Currency = 30
-               };
-                _ctx.Customers.Add(customer1);
+               //var customer1 = new Customer()
+               //{
+               //    Name = "John Smith",
+               //    Email = "j@mail.com",
+               //    Password = "123",
+               //    Currency = 30
+               //};
+               // _ctx.Customers.Add(customer1);
 
                 var product1 = new Product()
                 {
@@ -64,6 +86,7 @@ namespace LunchTime.Data
                 {
                     OrderDate = DateTime.Now,
                     OrderNumber = "123",
+                    Customer = user,
                     Items = new List<OrderItem>()
                     {
                         new OrderItem()
@@ -78,7 +101,7 @@ namespace LunchTime.Data
                             Quantity = 3,
                         }
                     },
-                    Customer = customer1,
+                    //Customer = customer1,
                 };
                 _ctx.Orders.Add(order1);
                 _ctx.SaveChanges();

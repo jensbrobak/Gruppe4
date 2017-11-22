@@ -11,9 +11,10 @@ using System;
 namespace LunchTime.Migrations
 {
     [DbContext(typeof(LunchTimeContext))]
-    partial class LunchTimeContextModelSnapshot : ModelSnapshot
+    [Migration("20171122113258_Identity1")]
+    partial class Identity1
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,6 +49,8 @@ namespace LunchTime.Migrations
 
                     b.Property<string>("NormalizedUserName")
                         .HasMaxLength(256);
+
+                    b.Property<string>("Password");
 
                     b.Property<string>("PasswordHash");
 
