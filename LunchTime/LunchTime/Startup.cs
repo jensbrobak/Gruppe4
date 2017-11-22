@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
-using LunchTime.Services;
 using LunchTime.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -17,32 +16,29 @@ namespace LunchTime
 {
     public class Startup
     {
-        private readonly IConfiguration _Config;
+        private readonly IConfiguration _config;
 
         public Startup(IConfiguration config)
         {
-            _Config = config;
+            _config = config;
         }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddIdentity<Customer, IdentityRole>(cfg =>
+            services.AddIdentity<Customer, IdentityRole>(cfg => 
             {
                 cfg.User.RequireUniqueEmail = true;
-                cfg.Password.RequiredLength = 10;
             })
-                .AddEntityFrameworkStores<LunchTimeContext>();
+                .AddEntityFrameworkStores<LunchTimeContext>(); // how to connect to db
 
             services.AddDbContext<LunchTimeContext>(cfg => 
             {
-                cfg.UseSqlServer(_Config.GetConnectionString("LunchTimeConnectionString"));
+                cfg.UseSqlServer(_config.GetConnectionString("LunchTimeConnectionString"));
             });
 
-            services.AddTransient<IMailService, NullMailService>(); //Support for real mail sevice
-
-            //services.AddTransient<DutchSeeder>();
+            services.AddTransient<LunchTimeSeeder>();
 
             services.AddScoped<ILunchTimeRepository, LunchTimeRepository>();
 
@@ -64,7 +60,6 @@ namespace LunchTime
                 app.UseExceptionHandler("/error");
             }
             
-
             app.UseStaticFiles();
 
             app.UseAuthentication();
@@ -76,15 +71,15 @@ namespace LunchTime
                     new { controller = "App", Action = "Index" });
             });
 
-            //if (env.IsDevelopment())
-            //{
-            //    // Seed the database
-            //    using (var scope = app.ApplicationServices.CreateScope())
-            //    {
-            //        var seeder = scope.ServiceProvider.GetService<DutchSeeder>();
-            //        seeder.Seed();
-            //    }
-            //}
+            if (env.IsDevelopment())
+            {
+                // Seed the database
+                using (var scope = app.ApplicationServices.CreateScope())
+                {
+                    var seeder = scope.ServiceProvider.GetService<LunchTimeSeeder>();
+                    seeder.Seed();
+                }
+            }
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using LunchTime.Data.Entities;
+using LunchTime.ViewModels;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -37,6 +38,12 @@ namespace LunchTime.Data
             
         }
 
+        //public Customer CustomerLoginAsync(string email, int password)
+        //{
+        //    return _ctx.Customers
+        //        .SingleOrDefault(c => c.Email.Equals(email) && c.Password == password);
+        //}
+
         //public IEnumerable<Product> GetProductsByCatagory(string catagory)
         //{
         //    //TODO try/catch
@@ -45,10 +52,10 @@ namespace LunchTime.Data
         //        .ToList();
         //}
 
-        //public bool SaveAll()
-        //{
-        //    //TODO try/catch
-        //    return _ctx.SaveChanges() > 0;
-        //}
+        public bool SaveAll()
+        {
+            //TODO try/catch
+            return _ctx.SaveChanges() > 0;
+        }
     }
 }

@@ -1,6 +1,8 @@
 ﻿using LunchTime.Data;
-using LunchTime.Services;
+using LunchTime.Data.Entities;
 using LunchTime.ViewModels;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -12,19 +14,15 @@ namespace LunchTime.Controllers
 {
     public class AppController : Controller
     {
-        private readonly IMailService _mailService;
         private readonly ILunchTimeRepository _repository;
 
-        public AppController(IMailService mailService, ILunchTimeRepository repository)
+        public AppController(ILunchTimeRepository repository)
         {
-            _mailService = mailService;
             _repository = repository;
         }
 
         public IActionResult Index()
         {
-            //throw new InvalidOperationException("Bad things happend");
-
             return View();
         }
 
@@ -34,23 +32,21 @@ namespace LunchTime.Controllers
             return View();
         }
 
-        [HttpPost("contact")]
-        public IActionResult Contact(ContactViewModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                //send the email
-                _mailService.SendMessage("s@mail.com", model.Subject, $"From: {model.Name} - {model.Email}, Message: {model.Message} ");
-                ViewBag.UserMessage = "Mail Sent";
-                ModelState.Clear();
-            }
-
-            return View();
-        }
-
-        [HttpGet("login")]
+        [HttpPost("login")]
         public IActionResult Login()
         {
+            //if (ModelState.IsValid)
+            //{
+            //    var results = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
+            //    _repository.CustomerLoginAsync(model.Username, model.Password);
+            //    Customer cur = new Customer();
+            //    cur = results;
+
+            //    if (cur != null)
+            //    {
+            //        RedirectToAction("shop", "App");
+            //    }
+            //}
             return View();
         }
 
@@ -74,15 +70,12 @@ namespace LunchTime.Controllers
             return View(results);
         }
 
+        //[Authorize]
+        [HttpGet("cart")]
         public IActionResult Cart()
         {
             return View();
         }
-
-        [HttpGet("about")]
-        public IActionResult About()
-        {
-            return View();
-        }
+        
     }
 }

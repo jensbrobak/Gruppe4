@@ -1,7 +1,4 @@
 {
-  "Colors": {
-    "Favorite": "blue"
-  },
   "ConnectionStrings": {
     "LunchTimeConnectionString": "server=STORM\\SQLEXPRESS;Database=LunchTimeDb;Integrated Security=true;MultipleActiveResultSets=true;"
   },

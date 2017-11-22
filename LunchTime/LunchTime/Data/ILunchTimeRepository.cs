@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using LunchTime.Data.Entities;
+using LunchTime.ViewModels;
 
 namespace LunchTime.Data
 {
@@ -7,6 +8,7 @@ namespace LunchTime.Data
     {
         IEnumerable<Product> GetAllProducts();
         //IEnumerable<Product> GetProductsByCatagory(string catagory);
-        //bool SaveAll();
+        //Customer CustomerLoginAsync(string email, int password);
+        bool SaveAll();
     }
 }
