@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Lunch Time: @ViewBag.Title</title>
+    <link href="~/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/css/site.css" rel="stylesheet" />
+
+</head>
+<body>
+
+    <div class="navigation-bar">
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-light">
+            <div class="container">
+                <div class="navbar-brand"><a asp-controller="App" asp-action="Index"><i class="fa fa-cutlery"></i>LunchTime</a></div>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">                            
+                            <div class="nav-link">
+                                <a asp-controller="App" asp-action="Shop">Shop</a>
+                            </div>
+                        </li>
+                        <li class="nav-item"> 
+                            <div class="nav-link">
+                                <a asp-controller="App" asp-action="Contact">Kontakt</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <form class="form-inline my-2 my-lg-0">
+                        <div class="cart">
+                            <a asp-controller="App" asp-action="Cart"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="login">
+                            <a asp-controller="Account" asp-action="Login">Log ind med UCN</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+
+
+
+    <div class="container-full body-content">
+        @RenderBody()
+    </div>
+
+    <div class="container">
+        <footer>
+            <p>&copy; @DateTime.Now.Year - LunchTime: University College Nordjylland</p>
+        </footer>
+    </div>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.js"></script>
+    <script src="~/js/index.js"></script>
+    @RenderSection("scripts", false)
+</body>
+</html>

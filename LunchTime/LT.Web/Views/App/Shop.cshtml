@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Shop";
+}
+
+<div class="container">
+
+    @using LT.Web.Data.Entities    @model IEnumerable<LT.Web.Data.Entities.Product>
+
+    @foreach (var p in Model)
+    {
+        <div class="product">
+            <div class="row">
+                <div class="col">
+                    <div class="product-info">
+                        <h4>@p.Name</h4>
+                        <p>@p.Description</p>
+                    </div>
+                </div>
+                <div class="col-md-auto">
+                    <div class="price"><p>kr. @p.Price</p></div>
+                </div>
+                <div class="col col-lg-2">
+                    <div class="add-to-cart">
+                        <button class="btn btn-primary my-2 my-sm-0" type="submit">+</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
