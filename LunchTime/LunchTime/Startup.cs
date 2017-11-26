@@ -11,16 +11,19 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using LunchTime.Data.Entities;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 
 namespace LunchTime
 {
     public class Startup
     {
         private readonly IConfiguration _config;
+        private readonly IHostingEnvironment _env;
 
-        public Startup(IConfiguration config)
+        public Startup(IConfiguration config, IHostingEnvironment env)
         {
             _config = config;
+            _env = env;
         }
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -30,6 +33,9 @@ namespace LunchTime
             services.AddIdentity<Customer, IdentityRole>(cfg => 
             {
                 cfg.User.RequireUniqueEmail = true;
+                cfg.Password.RequireNonAlphanumeric = false;
+                cfg.Password.RequireLowercase = false;
+                cfg.Password.RequireUppercase = false;
             })
                 .AddEntityFrameworkStores<LunchTimeContext>(); // how to connect to db
 
@@ -42,7 +48,13 @@ namespace LunchTime
 
             services.AddScoped<ILunchTimeRepository, LunchTimeRepository>();
 
-            services.AddMvc();
+            services.AddMvc(opt => 
+            {
+                if (_env.IsProduction())
+                {
+                    opt.Filters.Add(new RequireHttpsAttribute()); // Hole site require Https only in production because we use credentials
+                }
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

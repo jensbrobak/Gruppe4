@@ -34,7 +34,7 @@ namespace LunchTime.Data
                     Email = "j@mail.com",
                     Currency = 30
                 };
-                var result = await _userManager.CreateAsync(user, "P@ssw0rd!");
+                var result = await _userManager.CreateAsync(user, "1234567890");
 
                 if (result != IdentityResult.Success)
                 {
@@ -87,6 +87,7 @@ namespace LunchTime.Data
                     OrderDate = DateTime.Now,
                     OrderNumber = "123",
                     Customer = user,
+                    OrderStatus = "aktiv",
                     Items = new List<OrderItem>()
                     {
                         new OrderItem()

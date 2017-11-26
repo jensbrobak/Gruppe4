@@ -11,9 +11,10 @@ using System;
 namespace LunchTime.Migrations
 {
     [DbContext(typeof(LunchTimeContext))]
-    partial class LunchTimeContextModelSnapshot : ModelSnapshot
+    [Migration("20171125144557_Identity3")]
+    partial class Identity3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

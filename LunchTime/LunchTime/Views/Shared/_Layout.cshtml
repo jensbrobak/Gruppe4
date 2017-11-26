@@ -34,9 +34,22 @@
                         <div class="cart">
                             <a asp-controller="App" asp-action="Cart"><i class="fa fa-cart-arrow-down" aria-hidden="true"></i></a>
                         </div>
-                        <div class="login">
-                            <a asp-controller="Account" asp-action="Login">Log ind med UCN</a>
+                        <div class="nav-item">
+                            <a asp-controller="Account" asp-action="MyPage">Min side</a>
                         </div>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <div class="login">
+                                <a asp-controller="Account" asp-action="Logout">Log ud</a>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="login">
+                                <a asp-controller="Account" asp-action="Login">Log ind med UCN</a>
+                            </div>
+                        }
+                        
                     </form>
                 </div>
             </div>
