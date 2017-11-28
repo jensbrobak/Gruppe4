@@ -1,6 +1,6 @@
 {
   "ConnectionStrings": {
-    "LunchTimeConnectionString": "server=STORM\\SQLEXPRESS;Database=LunchTimeDb;Integrated Security=true;MultipleActiveResultSets=true;"
+    "LunchTimeConnectionString": "server=JENSBROBAKN0DF4\\SQLEXPRESS;Database=LunchTimeDb;Integrated Security=true;MultipleActiveResultSets=true;"
   },
   "Logging": {
     "LogLevel": {

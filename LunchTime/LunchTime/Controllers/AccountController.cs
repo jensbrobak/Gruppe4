@@ -46,13 +46,12 @@ namespace LunchTime.Controllers
                 {
                     if (Request.Query.Keys.Contains("ReturnUrl"))
                     {
-                        Redirect(Request.Query["ReturnUrl"].First());
+                        return Redirect(Request.Query["ReturnUrl"].First());
                     }
                     else
                     {
-                        RedirectToAction("MyPage", "Account");
+                        return RedirectToAction("MyPage", "Account");
                     }
-                    //RedirectToAction("MyPage", "Account");
 
                 }
 
