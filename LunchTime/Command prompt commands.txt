@@ -1,0 +1,7 @@
+for angular:
+ng build --watch
+
+ef:
+dotnet ef migrations add ?
+dotnet ef database drop
+dotnet ef database update

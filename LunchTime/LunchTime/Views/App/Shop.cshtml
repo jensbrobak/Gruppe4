@@ -2,9 +2,25 @@
     ViewBag.Title = "Shop";
 }
 
-<div class="container">
+@model IEnumerable<Product>
+@section Scripts {
+<script src="~/clientapp/dist/inline.bundle.js"></script>
+<script src="~/clientapp/dist/polyfills.bundle.js"></script>
+<script src="~/clientapp/dist/styles.bundle.js"></script>
+<script src="~/clientapp/dist/vendor.bundle.js"></script>
+<script src="~/clientapp/dist/main.bundle.js"></script>
+}
+
+
+<the-shop></the-shop>
+
+
+@*<div class="container">
 
     @model IEnumerable<Product>
+    @section Scripts {
+    
+    }
 
     @foreach (var p in Model)
     {
@@ -27,4 +43,4 @@
             </div>
         </div>
     }
-</div>
+</div>*@

@@ -53,7 +53,7 @@ namespace LunchTime.Controllers
         [HttpGet("shop")]
         public IActionResult Shop()
         {
-            
+
             //var results = _context.Products 
             //    .OrderBy(p => p.Category)
             //    .ToList();
@@ -65,9 +65,10 @@ namespace LunchTime.Controllers
 
             //return View(results.ToList());
 
-            var results = _repository.GetAllProducts();
+            //var results = _repository.GetAllProducts();
 
-            return View(results);
+            //return View(results);
+            return View();
         }
 
         //[Authorize]

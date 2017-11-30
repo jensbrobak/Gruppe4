@@ -52,12 +52,8 @@ namespace LunchTime.Controllers
                     {
                         return RedirectToAction("MyPage", "Account");
                     }
-
                 }
-
             }
-            
-            
                 ModelState.AddModelError("", "Failed to login");
             
             return View();

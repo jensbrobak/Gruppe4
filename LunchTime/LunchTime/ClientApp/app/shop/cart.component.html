@@ -1,0 +1,21 @@
+﻿<h3>Indkøbskurv</h3>
+<div>#/Items: {{data.order.items.length}}</div>
+<div>Total: {{data.order.total | currency:"Kr. "}}</div>
+<table class="table table-condensed table-hover">
+    <thead>
+        <tr>
+            <td>Produkt</td>
+            <td>#</td>
+            <td>Pris</td>
+            <td>subtotal</td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let o of data.order.items">
+            <td>{{o.productName}} - {{o.productDescription}}</td>
+            <td>{{o.quantity}}</td>
+            <td>{{o.productPrice | currency:"kr. "}}</td>
+            <td>{{(o.productPrice * o.quantity) | currency:"kr. "}}</td>
+        </tr>
+    </tbody>
+</table>

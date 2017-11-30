@@ -9,6 +9,12 @@ namespace LunchTime.Data
         IEnumerable<Product> GetAllProducts();
         //IEnumerable<Product> GetProductsByCatagory(string catagory);
         //Customer CustomerLoginAsync(string email, int password);
+
+        
+        IEnumerable<Order> GetAllOrders(bool includeItems);
+        Order GetOrderById(int id);
+
         bool SaveAll();
+        void AddEntity(object model);
     }
 }

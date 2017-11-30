@@ -1,5 +1,6 @@
 ﻿using LunchTime.Data.Entities;
 using LunchTime.ViewModels;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,33 @@ namespace LunchTime.Data
             _ctx = ctx;
             _logger = logger;
         }
+
+        public IEnumerable<Order> GetAllOrders(bool includeItems)
+        {
+            if (includeItems)
+            {
+                return _ctx.Orders
+                    .Include(c => c.Customer) // shows all customer info - not sure if this is good
+                    .Include(o => o.Items)
+                    .ThenInclude(i => i.Product)
+                    .ToList();
+            }
+            else
+            {
+                return _ctx.Orders
+                    .ToList();
+            }
+        }
+        public Order GetOrderById(int id)
+        {
+            return _ctx.Orders
+                .Include(c => c.Customer) // shows all customer info - not sure if this is good
+                .Include(o => o.Items)
+                .ThenInclude(i => i.Product)
+                .Where(o => o.Id == id)
+                .FirstOrDefault(); // returns the first one it finds or null if it didnt find it
+        }
+
 
         public IEnumerable<Product> GetAllProducts()
         {
@@ -54,8 +82,21 @@ namespace LunchTime.Data
 
         public bool SaveAll()
         {
-            //TODO try/catch
-            return _ctx.SaveChanges() > 0;
+            try
+            {
+                _logger.LogInformation("SaveAll was called");
+                return _ctx.SaveChanges() > 0;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Failed to save changes: {ex}");
+                return false;
+            }
+        }
+
+        public void AddEntity(object model)
+        {
+            _ctx.Add(model);
         }
     }
 }

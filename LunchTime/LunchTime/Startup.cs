@@ -12,6 +12,8 @@ using Microsoft.Extensions.Configuration;
 using LunchTime.Data.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using AutoMapper;
 
 namespace LunchTime
 {
@@ -44,6 +46,8 @@ namespace LunchTime
                 cfg.UseSqlServer(_config.GetConnectionString("LunchTimeConnectionString"));
             });
 
+            services.AddAutoMapper(); //looks for AutoMapper profiles - a way to setup these mappings
+
             services.AddTransient<LunchTimeSeeder>();
 
             services.AddScoped<ILunchTimeRepository, LunchTimeRepository>();
@@ -54,7 +58,8 @@ namespace LunchTime
                 {
                     opt.Filters.Add(new RequireHttpsAttribute()); // Hole site require Https only in production because we use credentials
                 }
-            });
+            })
+            .AddJsonOptions(opt => opt.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore); // Ignores the selfreferenceloop in Order/OrderItem
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
