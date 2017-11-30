@@ -12,10 +12,16 @@ namespace LT.WCF.Services
     public interface IWcfService
     {
         [OperationContract]
-        Customer GetCustomer(string id);
+        Customer GetCustomer(Guid id);
 
         [OperationContract]
         List<Order> GetOrders(string id);
+
+        [OperationContract]
+        List<OrderItem> GetOrderItems(int id);
+
+        [OperationContract]
+        List <Product> GetProducts(int id);
 
         [OperationContract]
         void CloseOrder(int id);

@@ -13,10 +13,10 @@ namespace LT.WCF.Entities
         [DataMember]
         public int Id { get; set; }
         [DataMember]
-        public Product Product { get; set; }
+        public int ProductId { get; set; }
         [DataMember]
         public int Quantity { get; set; }
         [DataMember]
-        public Order Order { get; set; }
+        public int OrderId { get; set; }
     }
 }

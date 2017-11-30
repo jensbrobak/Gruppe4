@@ -26,7 +26,7 @@ namespace LT.WCF.DesktopClient.WcfServiceReference {
         private double CurrencyField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string IdField;
+        private System.Guid IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
@@ -55,12 +55,12 @@ namespace LT.WCF.DesktopClient.WcfServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Id {
+        public System.Guid Id {
             get {
                 return this.IdField;
             }
             set {
-                if ((object.ReferenceEquals(this.IdField, value) != true)) {
+                if ((this.IdField.Equals(value) != true)) {
                     this.IdField = value;
                     this.RaisePropertyChanged("Id");
                 }
@@ -228,10 +228,10 @@ namespace LT.WCF.DesktopClient.WcfServiceReference {
         private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private LT.WCF.DesktopClient.WcfServiceReference.Order OrderField;
+        private int OrderIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private LT.WCF.DesktopClient.WcfServiceReference.Product ProductField;
+        private int ProductIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int QuantityField;
@@ -260,27 +260,27 @@ namespace LT.WCF.DesktopClient.WcfServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public LT.WCF.DesktopClient.WcfServiceReference.Order Order {
+        public int OrderId {
             get {
-                return this.OrderField;
+                return this.OrderIdField;
             }
             set {
-                if ((object.ReferenceEquals(this.OrderField, value) != true)) {
-                    this.OrderField = value;
-                    this.RaisePropertyChanged("Order");
+                if ((this.OrderIdField.Equals(value) != true)) {
+                    this.OrderIdField = value;
+                    this.RaisePropertyChanged("OrderId");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public LT.WCF.DesktopClient.WcfServiceReference.Product Product {
+        public int ProductId {
             get {
-                return this.ProductField;
+                return this.ProductIdField;
             }
             set {
-                if ((object.ReferenceEquals(this.ProductField, value) != true)) {
-                    this.ProductField = value;
-                    this.RaisePropertyChanged("Product");
+                if ((this.ProductIdField.Equals(value) != true)) {
+                    this.ProductIdField = value;
+                    this.RaisePropertyChanged("ProductId");
                 }
             }
         }
@@ -422,16 +422,28 @@ namespace LT.WCF.DesktopClient.WcfServiceReference {
     public interface IWcfService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/GetCustomer", ReplyAction="http://tempuri.org/IWcfService/GetCustomerResponse")]
-        LT.WCF.DesktopClient.WcfServiceReference.Customer GetCustomer(string id);
+        LT.WCF.DesktopClient.WcfServiceReference.Customer GetCustomer(System.Guid id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/GetCustomer", ReplyAction="http://tempuri.org/IWcfService/GetCustomerResponse")]
-        System.Threading.Tasks.Task<LT.WCF.DesktopClient.WcfServiceReference.Customer> GetCustomerAsync(string id);
+        System.Threading.Tasks.Task<LT.WCF.DesktopClient.WcfServiceReference.Customer> GetCustomerAsync(System.Guid id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/GetOrders", ReplyAction="http://tempuri.org/IWcfService/GetOrdersResponse")]
         LT.WCF.DesktopClient.WcfServiceReference.Order[] GetOrders(string id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/GetOrders", ReplyAction="http://tempuri.org/IWcfService/GetOrdersResponse")]
         System.Threading.Tasks.Task<LT.WCF.DesktopClient.WcfServiceReference.Order[]> GetOrdersAsync(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/GetOrderItems", ReplyAction="http://tempuri.org/IWcfService/GetOrderItemsResponse")]
+        LT.WCF.DesktopClient.WcfServiceReference.OrderItem[] GetOrderItems(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/GetOrderItems", ReplyAction="http://tempuri.org/IWcfService/GetOrderItemsResponse")]
+        System.Threading.Tasks.Task<LT.WCF.DesktopClient.WcfServiceReference.OrderItem[]> GetOrderItemsAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/GetProducts", ReplyAction="http://tempuri.org/IWcfService/GetProductsResponse")]
+        LT.WCF.DesktopClient.WcfServiceReference.Product[] GetProducts(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/GetProducts", ReplyAction="http://tempuri.org/IWcfService/GetProductsResponse")]
+        System.Threading.Tasks.Task<LT.WCF.DesktopClient.WcfServiceReference.Product[]> GetProductsAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/CloseOrder", ReplyAction="http://tempuri.org/IWcfService/CloseOrderResponse")]
         void CloseOrder(int id);
@@ -467,11 +479,11 @@ namespace LT.WCF.DesktopClient.WcfServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public LT.WCF.DesktopClient.WcfServiceReference.Customer GetCustomer(string id) {
+        public LT.WCF.DesktopClient.WcfServiceReference.Customer GetCustomer(System.Guid id) {
             return base.Channel.GetCustomer(id);
         }
         
-        public System.Threading.Tasks.Task<LT.WCF.DesktopClient.WcfServiceReference.Customer> GetCustomerAsync(string id) {
+        public System.Threading.Tasks.Task<LT.WCF.DesktopClient.WcfServiceReference.Customer> GetCustomerAsync(System.Guid id) {
             return base.Channel.GetCustomerAsync(id);
         }
         
@@ -481,6 +493,22 @@ namespace LT.WCF.DesktopClient.WcfServiceReference {
         
         public System.Threading.Tasks.Task<LT.WCF.DesktopClient.WcfServiceReference.Order[]> GetOrdersAsync(string id) {
             return base.Channel.GetOrdersAsync(id);
+        }
+        
+        public LT.WCF.DesktopClient.WcfServiceReference.OrderItem[] GetOrderItems(int id) {
+            return base.Channel.GetOrderItems(id);
+        }
+        
+        public System.Threading.Tasks.Task<LT.WCF.DesktopClient.WcfServiceReference.OrderItem[]> GetOrderItemsAsync(int id) {
+            return base.Channel.GetOrderItemsAsync(id);
+        }
+        
+        public LT.WCF.DesktopClient.WcfServiceReference.Product[] GetProducts(int id) {
+            return base.Channel.GetProducts(id);
+        }
+        
+        public System.Threading.Tasks.Task<LT.WCF.DesktopClient.WcfServiceReference.Product[]> GetProductsAsync(int id) {
+            return base.Channel.GetProductsAsync(id);
         }
         
         public void CloseOrder(int id) {

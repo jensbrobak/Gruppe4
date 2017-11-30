@@ -1,7 +1,7 @@
 ﻿
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+//using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using LT.WCF.Entities;
 
 namespace LT.WCF.Data
@@ -10,6 +10,7 @@ namespace LT.WCF.Data
     public class WcfDbContext : DbContext
     {
         public DbSet<Product> Products { get; set; }
+        public DbSet<OrderItem> OrderItems { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<Customer> Customers { get; set; }
 
@@ -20,6 +21,8 @@ namespace LT.WCF.Data
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
 
             modelBuilder.Entity<Customer>().Ignore(c => c.Name);
+
+          //  modelBuilder.Entity<OrderItem>().ToTable("OrderItem");
 
         }
     }

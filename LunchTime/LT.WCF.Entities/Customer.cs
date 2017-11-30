@@ -12,7 +12,7 @@ namespace LT.WCF.Entities
     public class Customer 
     {
         [DataMember]
-        public string Id { get; set; }
+        public Guid Id { get; set; }
         [DataMember]
         public string Name { get; set; }
         [DataMember]

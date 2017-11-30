@@ -88,6 +88,12 @@
     <None Include="Connected Services\WcfServiceReference\LT.WCF.DesktopClient.WcfServiceReference.Order.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\WcfServiceReference\LT.WCF.DesktopClient.WcfServiceReference.OrderItem.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WcfServiceReference\LT.WCF.DesktopClient.WcfServiceReference.Product.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\WcfServiceReference\WcfService.wsdl" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

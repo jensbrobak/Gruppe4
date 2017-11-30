@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2008
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LT.Web", "LT.Web\LT.Web.csproj", "{295F9DDD-1A2F-4E7E-B798-37CE676E9C80}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LT.WCF.DesktopClient", "LT.WCF.DesktopClient\LT.WCF.DesktopClient.csproj", "{5F156792-948A-49F3-8CD2-CDE1432D901D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LT.WCF.Services", "LT.WCF.Services\LT.WCF.Services.csproj", "{8067668F-CB9C-4015-B9C1-B978AB89358E}"
@@ -21,10 +19,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{295F9DDD-1A2F-4E7E-B798-37CE676E9C80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{295F9DDD-1A2F-4E7E-B798-37CE676E9C80}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{295F9DDD-1A2F-4E7E-B798-37CE676E9C80}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{295F9DDD-1A2F-4E7E-B798-37CE676E9C80}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5F156792-948A-49F3-8CD2-CDE1432D901D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5F156792-948A-49F3-8CD2-CDE1432D901D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F156792-948A-49F3-8CD2-CDE1432D901D}.Release|Any CPU.ActiveCfg = Release|Any CPU
