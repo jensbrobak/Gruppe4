@@ -17,12 +17,18 @@ namespace LunchTime.Controllers
     {
         private readonly ILogger<AccountController> _logger;
         private readonly SignInManager<Customer> _signInManager;
+        private readonly UserManager<Customer> _userManager;
+        private readonly LunchTimeContext _ctx;
 
-        public AccountController(ILogger<AccountController> logger, SignInManager<Customer> signInManager)
+        public AccountController(ILogger<AccountController> logger, SignInManager<Customer> signInManager, UserManager<Customer> userManager, LunchTimeContext ctx)
         {
             _logger = logger;
             _signInManager = signInManager;
+            _userManager = userManager;
+            _ctx = ctx;
         }
+
+
 
         //[HttpGet("login")]
         public IActionResult Login()
@@ -44,12 +50,14 @@ namespace LunchTime.Controllers
 
                 if (result.Succeeded)
                 {
+                    
                     if (Request.Query.Keys.Contains("ReturnUrl"))
                     {
                         return Redirect(Request.Query["ReturnUrl"].First());
                     }
                     else
                     {
+                        
                         return RedirectToAction("MyPage", "Account");
                     }
                 }
@@ -59,11 +67,35 @@ namespace LunchTime.Controllers
             return View();
         }
 
+
+
         [Authorize]
         [HttpGet("mypage")]
-        public IActionResult MyPage()
+        public async Task<IActionResult> MyPage()
         {
-            return View();
+            AccountViewModel model = new AccountViewModel();
+
+            var user = await _userManager.FindByEmailAsync(User.Identity.Name);
+
+            model.Name = user.Name;
+            model.Currency = user.Currency;
+
+            return View(model);
+        }
+
+        [HttpPost("mypage")]
+        public Task<IActionResult> mypage(AccountViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+               var user = _userManager.FindByEmailAsync(User.Identity.Name).Result;
+
+                user.Currency = model.Currency;
+
+                _ctx.Update(user);
+                _ctx.SaveChanges();
+            }
+            return MyPage();
         }
 
         [HttpGet]
@@ -72,5 +104,6 @@ namespace LunchTime.Controllers
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index", "App");
         }
+
     }
 }
