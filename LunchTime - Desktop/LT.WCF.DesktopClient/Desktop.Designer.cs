@@ -43,6 +43,10 @@
             this.orderItemBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lunchTimelbld = new System.Windows.Forms.Label();
             this.produktDataGridView = new System.Windows.Forms.DataGridView();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.ordreItemsDataGridView = new System.Windows.Forms.DataGridView();
             this.productIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,10 +54,6 @@
             this.ordreGroupBox = new System.Windows.Forms.GroupBox();
             this.ordreItemsGroupBox = new System.Windows.Forms.GroupBox();
             this.produktGroupBox = new System.Windows.Forms.GroupBox();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.ordreDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderItemBindingSource)).BeginInit();
@@ -127,7 +127,7 @@
             this.idScanKnap.TabIndex = 1;
             this.idScanKnap.Text = "Scan";
             this.idScanKnap.UseVisualStyleBackColor = true;
-            this.idScanKnap.Click += new System.EventHandler(this.scanId_Click);
+            this.idScanKnap.Click += new System.EventHandler(this.ScanId_Click);
             // 
             // idNrBox
             // 
@@ -135,7 +135,7 @@
             this.idNrBox.Name = "idNrBox";
             this.idNrBox.Size = new System.Drawing.Size(348, 31);
             this.idNrBox.TabIndex = 3;
-            this.idNrBox.Text = "Indtast ID-nr";
+            this.idNrBox.Text = "Scan ID-nr";
             // 
             // afslutOrdreKnap
             // 
@@ -145,7 +145,7 @@
             this.afslutOrdreKnap.TabIndex = 4;
             this.afslutOrdreKnap.Text = "Afslut ordre";
             this.afslutOrdreKnap.UseVisualStyleBackColor = true;
-            this.afslutOrdreKnap.Click += new System.EventHandler(this.afslutOrdre_Click);
+            this.afslutOrdreKnap.Click += new System.EventHandler(this.AfslutOrdre_Click);
             // 
             // lunchTimeLbl
             // 
@@ -194,6 +194,34 @@
             this.produktDataGridView.Size = new System.Drawing.Size(1364, 214);
             this.produktDataGridView.TabIndex = 8;
             // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // descriptionDataGridViewTextBoxColumn
+            // 
+            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
+            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
+            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            this.descriptionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // priceDataGridViewTextBoxColumn
+            // 
+            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
+            this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
+            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            this.priceDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // Stock
+            // 
+            this.Stock.DataPropertyName = "Stock";
+            this.Stock.HeaderText = "Stock";
+            this.Stock.Name = "Stock";
+            this.Stock.ReadOnly = true;
+            // 
             // productBindingSource
             // 
             this.productBindingSource.DataSource = typeof(LT.WCF.DesktopClient.WcfServiceReference.Product);
@@ -214,7 +242,7 @@
             this.ordreItemsDataGridView.RowTemplate.Height = 33;
             this.ordreItemsDataGridView.Size = new System.Drawing.Size(1364, 226);
             this.ordreItemsDataGridView.TabIndex = 6;
-            this.ordreItemsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ordreItemsDataGridView_CellClick);
+            this.ordreItemsDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.OrdreItemsDataGridView_CellClick);
             // 
             // productIdDataGridViewTextBoxColumn
             // 
@@ -265,34 +293,6 @@
             this.produktGroupBox.TabIndex = 11;
             this.produktGroupBox.TabStop = false;
             this.produktGroupBox.Text = "Vis produkt";
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // descriptionDataGridViewTextBoxColumn
-            // 
-            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
-            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
-            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
-            this.descriptionDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // priceDataGridViewTextBoxColumn
-            // 
-            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
-            this.priceDataGridViewTextBoxColumn.HeaderText = "Price";
-            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
-            this.priceDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // Stock
-            // 
-            this.Stock.DataPropertyName = "Stock";
-            this.Stock.HeaderText = "Stock";
-            this.Stock.Name = "Stock";
-            this.Stock.ReadOnly = true;
             // 
             // Desktop
             // 

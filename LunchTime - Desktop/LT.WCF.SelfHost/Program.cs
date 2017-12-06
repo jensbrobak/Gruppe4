@@ -6,10 +6,11 @@ namespace LT.WCF.SelfHost
 {
     class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             try
             {
+                // Vi initialisere en ny service host af typen WcfService fra vores services projekt
                 ServiceHost host = new ServiceHost(typeof(WcfService));
                 host.Open();
                 Console.WriteLine("Tryk på en tast for at afslutte programmet");
