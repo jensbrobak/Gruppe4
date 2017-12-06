@@ -26,7 +26,6 @@ namespace LunchTime.Data
             if (includeItems)
             {
                 return _ctx.Orders
-                    .Include(c => c.Customer) // shows all customer info - not sure if this is good
                     .Include(o => o.Items)
                     .ThenInclude(i => i.Product)
                     .ToList();
@@ -37,13 +36,31 @@ namespace LunchTime.Data
                     .ToList();
             }
         }
-        public Order GetOrderById(int id)
+
+        public IEnumerable<Order> GetAllOrdersByUser(string username, bool includeItems)
+        {
+            if (includeItems)
+            {
+                return _ctx.Orders
+                    .Where(o => o.Customer.UserName == username)
+                    .Include(o => o.Items)
+                    .ThenInclude(i => i.Product)
+                    .ToList();
+            }
+            else
+            {
+                return _ctx.Orders
+                    .Where(o => o.Customer.UserName == username)
+                    .ToList();
+            }
+        }
+
+        public Order GetOrderById(string username, int id)
         {
             return _ctx.Orders
-                .Include(c => c.Customer) // shows all customer info - not sure if this is good
                 .Include(o => o.Items)
                 .ThenInclude(i => i.Product)
-                .Where(o => o.Id == id)
+                .Where(o => o.Id == id && o.Customer.UserName == username)
                 .FirstOrDefault(); // returns the first one it finds or null if it didnt find it
         }
 
@@ -97,6 +114,17 @@ namespace LunchTime.Data
         public void AddEntity(object model)
         {
             _ctx.Add(model);
+        }
+
+        public void AddOrder(Order newOrder)
+        {
+            // Convert new products to lookup of product
+            foreach (var item in newOrder.Items)
+            {
+                item.Product = _ctx.Products.Find(item.Product.Id); // Might be here to do a compare to stock and payment or call methods to do so
+            }
+
+            AddEntity(newOrder);
         }
     }
 }

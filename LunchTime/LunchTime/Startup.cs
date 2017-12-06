@@ -14,6 +14,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using AutoMapper;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace LunchTime
 {
@@ -40,6 +42,20 @@ namespace LunchTime
                 cfg.Password.RequireUppercase = false;
             })
                 .AddEntityFrameworkStores<LunchTimeContext>(); // how to connect to db
+
+            services.AddAuthentication()
+                .AddCookie()
+                .AddJwtBearer(cfg =>
+                {
+                    cfg.SaveToken = true;
+                    cfg.TokenValidationParameters = new TokenValidationParameters()
+                    {
+                        ValidIssuer = _config["Tokens:Issuer"],
+                        ValidAudience = _config["Tokens:Audience"],
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Tokens:Key"]))
+                };
+                    
+                });
 
             services.AddDbContext<LunchTimeContext>(cfg => 
             {

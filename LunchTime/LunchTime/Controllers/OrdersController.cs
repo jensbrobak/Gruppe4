@@ -2,6 +2,9 @@
 using LunchTime.Data;
 using LunchTime.Data.Entities;
 using LunchTime.ViewModels;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -13,18 +16,24 @@ using System.Threading.Tasks;
 namespace LunchTime.Controllers
 {
     [Route("api/[Controller]")] // more web api design - pluralsight.com/courses/web-api-design and plurasight.com/courses/aspdotnetcore-implementing-securing-api
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class OrdersController : Controller
     {
         
         private readonly ILunchTimeRepository _repository;
         private readonly ILogger<OrdersController> _logger;
         private readonly IMapper _mapper;
+        private readonly UserManager<Customer> _userManager;
 
-        public OrdersController(ILunchTimeRepository repository, ILogger<OrdersController> logger, IMapper mapper)
+        public OrdersController(ILunchTimeRepository repository, 
+            ILogger<OrdersController> logger, 
+            IMapper mapper,
+            UserManager<Customer> userManager)
         {
             _repository = repository;
             _logger = logger;
             _mapper = mapper;
+            _userManager = userManager;
         }
 
         [HttpGet]
@@ -32,7 +41,9 @@ namespace LunchTime.Controllers
         {
             try
             {
-                var results = _repository.GetAllOrders(includeItems);
+                var username = User.Identity.Name;
+
+                var results = _repository.GetAllOrdersByUser(username, includeItems);
 
                 return Ok(_mapper.Map<IEnumerable<Order>, IEnumerable<OrderViewModel>>(results));
             }
@@ -49,7 +60,7 @@ namespace LunchTime.Controllers
         {
             try
             {
-                var order = _repository.GetOrderById(id);
+                var order = _repository.GetOrderById(User.Identity.Name, id);
                 if (order != null) return Ok(_mapper.Map<Order, OrderViewModel>(order));
                 else return NotFound(); // This is preferred than BadRequest
             }
@@ -61,7 +72,7 @@ namespace LunchTime.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post([FromBody]OrderViewModel model)
+        public async Task<IActionResult> Post([FromBody]OrderViewModel model)
         {
             // add it to the db
             try
@@ -75,7 +86,12 @@ namespace LunchTime.Controllers
                         newOrder.OrderDate = DateTime.Now;
                     }
 
-                    _repository.AddEntity(newOrder);
+                    var currentUser = await _userManager.FindByNameAsync(User.Identity.Name);
+                    newOrder.Customer = currentUser;
+
+                    newOrder.OrderStatus = "Aktiv";
+
+                    _repository.AddOrder(newOrder);
                     if (_repository.SaveAll())
                     {
                         return Created($"/api/orders/{newOrder.Id}", _mapper.Map<Order, OrderViewModel>(newOrder));

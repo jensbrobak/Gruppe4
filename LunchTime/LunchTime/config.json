@@ -1,11 +1,18 @@
 {
   "ConnectionStrings": {
-    "LunchTimeConnectionString": "server=JENSBROBAKN0DF4\\SQLEXPRESS;Database=LunchTimeDb;Integrated Security=true;MultipleActiveResultSets=true;"
+    "LunchTimeConnectionString": "server=STORM\\SQLEXPRESS;Database=LunchTimeDb;Integrated Security=true;MultipleActiveResultSets=true;"
   },
   "Logging": {
     "LogLevel": {
-      "Default": "Information", 
+      "Default": "Information",
       "Microsoft": "Warning"
     }
+  },
+  "Tokens": {
+    "Key": "qwerasdf:drtdrtjgsergsergr",
+    "Issuer": "http://localhost:8888",
+    "Audience": "audience"
   }
 }
+//"Issuer": "http://localhost:8888",
+//    "Audience": "users"

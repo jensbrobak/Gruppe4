@@ -21,7 +21,28 @@ namespace LunchTime.Data
 
         public async Task Seed()
         {
-            _ctx.Database.EnsureCreated();
+            //var user1 = await _userManager.FindByEmailAsync("ps07118@ucn.dk");
+
+            //if (user1 == null)
+            //{
+            //    user1 = new Customer()
+            //    {
+            //        Id = "ps07118",
+            //        Name = "Storm Kim",
+            //        UserName = "ps07118@ucn.dk",
+            //        Email = "ps07118@ucn.dk",
+            //        Currency = 50
+            //    };
+            //    var result1 = await _userManager.CreateAsync(user1, "2105851234");
+
+            //    if (result1 != IdentityResult.Success)
+            //    {
+            //        throw new InvalidOperationException("Failed to create default user");
+            //    }
+            //}
+
+
+                _ctx.Database.EnsureCreated();
 
             var user = await _userManager.FindByEmailAsync("j@mail.com");
 
