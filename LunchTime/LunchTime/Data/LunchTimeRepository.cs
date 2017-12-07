@@ -1,12 +1,9 @@
 ﻿using LunchTime.Data.Entities;
-using LunchTime.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LunchTime.Data
 {
@@ -116,15 +113,107 @@ namespace LunchTime.Data
             _ctx.Add(model);
         }
 
-        public void AddOrder(Order newOrder)
+        public void AddOrder(Order newOrder) // Might be here to do a compare to stock and payment or call methods to do so
         {
-            // Convert new products to lookup of product
-            foreach (var item in newOrder.Items)
+            using (var dbContextTransaction = _ctx.Database.BeginTransaction())
             {
-                item.Product = _ctx.Products.Find(item.Product.Id); // Might be here to do a compare to stock and payment or call methods to do so
-            }
+                try
+                {
+                    double totalPrice = 0;
+                    bool inStock = false;
 
-            AddEntity(newOrder);
+                    // Convert new products to lookup of product
+                    foreach (var item in newOrder.Items)
+                    {
+                        item.Product = _ctx.Products.Find(item.Product.Id);
+                        totalPrice += item.Product.Price;
+                        if (_ctx.Products.Find(item.Product.Id).Stock >= item.Quantity)
+                        {
+                            inStock = true;
+                        }
+                        else
+                        {
+                            throw new Exception("Item is not in stock");
+                        }
+                    }
+
+                    if (newOrder.Customer.Currency >= totalPrice && inStock)
+                    {
+                        newOrder.Customer.Currency -= totalPrice;
+                        foreach (var item in newOrder.Items)
+                        {
+                            _ctx.Products.Find(item.Product.Id).Stock -= item.Quantity;
+                        }
+                    }
+                    else
+                    {
+                        throw new Exception("Failed to complete payment");
+                    }
+                    
+                    AddEntity(newOrder);
+                    SaveAll();
+                    dbContextTransaction.Commit();
+                    _logger.LogInformation("Transaction was completed");
+                }
+                catch (Exception ex)
+                {
+                    dbContextTransaction.Rollback();
+                    _logger.LogError($"Failed to complete transaction: {ex}");
+                }
+            }
         }
+
+        //private void Payment(Order newOrder)
+        //{
+        //    double totalPrice = 0;
+
+        //    foreach (var item in newOrder.Items)
+        //    {
+        //        totalPrice += _ctx.Products.Find(item.Product.Id).Price;
+        //    }
+
+        //    if (newOrder.Customer.Currency >= totalPrice)
+        //    {
+        //        newOrder.Customer.Currency -= totalPrice;
+        //    }
+        //    else
+        //    {
+        //        throw new Exception("Failed to complete payment");
+        //    }
+        //}
+
+        //private void CheckStock(Order newOrder)
+        //{
+        //    if (_ctx.Products.Find(newOrder.Items.).Stock >= item.Quantity)
+        //    {
+        //        foreach (var item in newOrder.Items)
+        //        {
+        //            _ctx.Products.Find(item.Product.Id).Stock--;
+        //        }
+        //    {
+                
+                    
+        //        }
+        //        else
+        //        {
+        //            throw new Exception("Not enough items in stock");
+        //        }
+        //    }
+        //}
+
+        //private void CheckStock(Order newOrder)
+        //{
+        //    foreach (var item in newOrder.Items)
+        //    {
+        //        if (_ctx.Products.Find(item.Product.Id).Stock >= item.Quantity)
+        //        {
+        //            _ctx.Products.Find(item.Product.Id).Stock -= item.Quantity;
+        //        }
+        //        else
+        //        {
+        //            throw new Exception("Not enough items in stock");
+        //        }
+        //    }
+        //}
     }
 }

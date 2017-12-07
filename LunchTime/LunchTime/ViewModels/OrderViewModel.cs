@@ -13,8 +13,7 @@ namespace LunchTime.ViewModels
     {
         public int OrderId { get; set; }
         public DateTime OrderDate { get; set; }
-        //public Customer customer { get; set; } //not sure if this is correct way
-
+        public string OrderStatus { get; set; }
         [Required]
         [MinLength(4)]
         public string OrderNumber { get; set; }
