@@ -16,8 +16,8 @@ namespace LT.WCF.Services
 
         public List<Order> GetOrders(string id)
         {
-            // LINQ query med lambda udtryk som går igennem alle ordre hvor kunde id er lig med angivet id
-            var oQuery = _context.Orders.Where(o => o.CustomerId == id);
+            // LINQ query med lambda udtryk som går igennem alle ordre hvor kunde id er lig med angivet id samt sortere efter nyeste ordredato
+            var oQuery = _context.Orders.Where(o => o.CustomerId == id).OrderByDescending(o => o.OrderDate);
 
             return oQuery.ToList();
         }
