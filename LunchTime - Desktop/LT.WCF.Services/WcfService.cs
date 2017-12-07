@@ -47,7 +47,7 @@ namespace LT.WCF.Services
             // LINQ query med lambda udtryk som går igennem alle ordre hvor ordre id er lig med angivet id
             var oQuery = _context.Orders.Where(o => o.Id == id);
             // Det første element i queryen fremfindes og ordrestatusen opdateres med "afsluttet" i model laget
-            oQuery.First().OrderStatus = "afsluttet";
+            oQuery.First().OrderStatus = "Afsluttet";
             // Alle ændringer bliver endeligt gemt i databasen
             _context.SaveChanges();
         }

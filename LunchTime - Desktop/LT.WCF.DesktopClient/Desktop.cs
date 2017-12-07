@@ -21,14 +21,26 @@ namespace LT.WCF.DesktopClient
                 _idNr = idNrBox.Text;
                 // ordren bliver hentet ud fra id nr og vist i ordreDataGridView
                 ordreDataGridView.DataSource = _client.GetOrders(_idNr);
-                // ordrelinjen bliver således hentet udfra ordre nr ved hjælp af ovenstående metode og vist i ordreItemsDataGridView
-                ordreItemsDataGridView.DataSource = _client.GetOrderItems(_client.GetOrders(_idNr).First().Id);
             }
             catch (Exception)
 
             {
                 MessageBox.Show(@"ID NR IKKE FUNDET - PRØV IGEN!");
             }
+
+        }
+
+        private void OrdreDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+            var rowindex = ordreDataGridView.CurrentCell.RowIndex;
+
+            var id = ordreDataGridView.Rows[rowindex].Cells[1].Value.ToString();
+
+            produktDataGridView.DataSource = "";
+
+            // ordrelinjen bliver fundet via. nuværende række samt celle på plads 1 og vist i ordreDataGridView
+            ordreItemsDataGridView.DataSource = _client.GetOrderItems(int.Parse(id));
 
         }
 
@@ -44,6 +56,7 @@ namespace LT.WCF.DesktopClient
 
                 MessageBox.Show($@"Ordre #{id} er blevet afsluttet", $@"ID NR: {_idNr} - Ordre afsluttet");
 
+                // Her "tømmer" vi alle felterne efter afsluttet ordre
                 ordreDataGridView.DataSource = "";
                 ordreItemsDataGridView.DataSource = "";
                 produktDataGridView.DataSource = "";
@@ -72,5 +85,6 @@ namespace LT.WCF.DesktopClient
                 MessageBox.Show(@"DER GIK ET ELLER ANDET GALT");
             }
         }
+
     }
 }

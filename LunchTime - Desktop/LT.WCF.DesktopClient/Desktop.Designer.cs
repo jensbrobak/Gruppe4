@@ -86,6 +86,7 @@
             this.ordreDataGridView.RowTemplate.Height = 33;
             this.ordreDataGridView.Size = new System.Drawing.Size(1361, 250);
             this.ordreDataGridView.TabIndex = 0;
+            this.ordreDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.OrdreDataGridView_CellClick);
             // 
             // orderDateDataGridViewTextBoxColumn
             // 
@@ -268,7 +269,7 @@
             this.ordreGroupBox.Size = new System.Drawing.Size(1379, 287);
             this.ordreGroupBox.TabIndex = 9;
             this.ordreGroupBox.TabStop = false;
-            this.ordreGroupBox.Text = "Vælg ordre";
+            this.ordreGroupBox.Text = "Vælg ordre (for at afslutte ordre)";
             // 
             // ordreItemsGroupBox
             // 
@@ -280,7 +281,7 @@
             this.ordreItemsGroupBox.Size = new System.Drawing.Size(1379, 262);
             this.ordreItemsGroupBox.TabIndex = 10;
             this.ordreItemsGroupBox.TabStop = false;
-            this.ordreItemsGroupBox.Text = "Vælg produkt";
+            this.ordreItemsGroupBox.Text = "Vælg produkt (for at se produkt info)";
             // 
             // produktGroupBox
             // 
@@ -292,7 +293,7 @@
             this.produktGroupBox.Size = new System.Drawing.Size(1379, 250);
             this.produktGroupBox.TabIndex = 11;
             this.produktGroupBox.TabStop = false;
-            this.produktGroupBox.Text = "Vis produkt";
+            this.produktGroupBox.Text = "Vis produkt info";
             // 
             // Desktop
             // 

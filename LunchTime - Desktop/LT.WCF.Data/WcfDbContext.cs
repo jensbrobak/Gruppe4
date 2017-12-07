@@ -11,5 +11,14 @@ namespace LT.WCF.Data
         public DbSet<OrderItem> OrderItems { get; set; }
 
         public DbSet<Product> Products { get; set; }
+
+        // Metoden OnModelCreating bruger vi til at specificere hvad der skal ske når entity modellerne bliver dannet ud fra db'en
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            // Her mapper vi OrderItem entity modellen til OrderItem tabellen i db'en
+            modelBuilder.Entity<OrderItem>().ToTable("OrderItem");
+        }
     }
+
 }
