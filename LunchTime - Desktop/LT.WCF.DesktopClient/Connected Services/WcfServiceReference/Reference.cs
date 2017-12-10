@@ -15,27 +15,30 @@ namespace LT.WCF.DesktopClient.WcfServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Order", Namespace="http://schemas.datacontract.org/2004/07/LT.WCF.Entities")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="OrderAndOrderItemsAndProducts", Namespace="http://schemas.datacontract.org/2004/07/LT.WCF.Entities")]
     [System.SerializableAttribute()]
-    public partial class Order : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class OrderAndOrderItemsAndProducts : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string CustomerIdField;
+        private System.DateTime OrdreDatoField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
+        private int OrdreIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime OrderDateField;
+        private string OrdreStatusField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string OrderNumberField;
+        private int ProduktAntalField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string OrderStatusField;
+        private string ProduktBeskrivelseField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ProduktNavnField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -48,268 +51,79 @@ namespace LT.WCF.DesktopClient.WcfServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string CustomerId {
+        public System.DateTime OrdreDato {
             get {
-                return this.CustomerIdField;
+                return this.OrdreDatoField;
             }
             set {
-                if ((object.ReferenceEquals(this.CustomerIdField, value) != true)) {
-                    this.CustomerIdField = value;
-                    this.RaisePropertyChanged("CustomerId");
+                if ((this.OrdreDatoField.Equals(value) != true)) {
+                    this.OrdreDatoField = value;
+                    this.RaisePropertyChanged("OrdreDato");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
+        public int OrdreId {
             get {
-                return this.IdField;
+                return this.OrdreIdField;
             }
             set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
+                if ((this.OrdreIdField.Equals(value) != true)) {
+                    this.OrdreIdField = value;
+                    this.RaisePropertyChanged("OrdreId");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime OrderDate {
+        public string OrdreStatus {
             get {
-                return this.OrderDateField;
+                return this.OrdreStatusField;
             }
             set {
-                if ((this.OrderDateField.Equals(value) != true)) {
-                    this.OrderDateField = value;
-                    this.RaisePropertyChanged("OrderDate");
+                if ((object.ReferenceEquals(this.OrdreStatusField, value) != true)) {
+                    this.OrdreStatusField = value;
+                    this.RaisePropertyChanged("OrdreStatus");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OrderNumber {
+        public int ProduktAntal {
             get {
-                return this.OrderNumberField;
+                return this.ProduktAntalField;
             }
             set {
-                if ((object.ReferenceEquals(this.OrderNumberField, value) != true)) {
-                    this.OrderNumberField = value;
-                    this.RaisePropertyChanged("OrderNumber");
+                if ((this.ProduktAntalField.Equals(value) != true)) {
+                    this.ProduktAntalField = value;
+                    this.RaisePropertyChanged("ProduktAntal");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string OrderStatus {
+        public string ProduktBeskrivelse {
             get {
-                return this.OrderStatusField;
+                return this.ProduktBeskrivelseField;
             }
             set {
-                if ((object.ReferenceEquals(this.OrderStatusField, value) != true)) {
-                    this.OrderStatusField = value;
-                    this.RaisePropertyChanged("OrderStatus");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="OrderItem", Namespace="http://schemas.datacontract.org/2004/07/LT.WCF.Entities")]
-    [System.SerializableAttribute()]
-    public partial class OrderItem : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int OrderIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int ProductIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int QuantityField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
+                if ((object.ReferenceEquals(this.ProduktBeskrivelseField, value) != true)) {
+                    this.ProduktBeskrivelseField = value;
+                    this.RaisePropertyChanged("ProduktBeskrivelse");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int OrderId {
+        public string ProduktNavn {
             get {
-                return this.OrderIdField;
+                return this.ProduktNavnField;
             }
             set {
-                if ((this.OrderIdField.Equals(value) != true)) {
-                    this.OrderIdField = value;
-                    this.RaisePropertyChanged("OrderId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int ProductId {
-            get {
-                return this.ProductIdField;
-            }
-            set {
-                if ((this.ProductIdField.Equals(value) != true)) {
-                    this.ProductIdField = value;
-                    this.RaisePropertyChanged("ProductId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Quantity {
-            get {
-                return this.QuantityField;
-            }
-            set {
-                if ((this.QuantityField.Equals(value) != true)) {
-                    this.QuantityField = value;
-                    this.RaisePropertyChanged("Quantity");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Product", Namespace="http://schemas.datacontract.org/2004/07/LT.WCF.Entities")]
-    [System.SerializableAttribute()]
-    public partial class Product : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string DescriptionField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double PriceField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int StockField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Description {
-            get {
-                return this.DescriptionField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
-                    this.DescriptionField = value;
-                    this.RaisePropertyChanged("Description");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Name {
-            get {
-                return this.NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double Price {
-            get {
-                return this.PriceField;
-            }
-            set {
-                if ((this.PriceField.Equals(value) != true)) {
-                    this.PriceField = value;
-                    this.RaisePropertyChanged("Price");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Stock {
-            get {
-                return this.StockField;
-            }
-            set {
-                if ((this.StockField.Equals(value) != true)) {
-                    this.StockField = value;
-                    this.RaisePropertyChanged("Stock");
+                if ((object.ReferenceEquals(this.ProduktNavnField, value) != true)) {
+                    this.ProduktNavnField = value;
+                    this.RaisePropertyChanged("ProduktNavn");
                 }
             }
         }
@@ -329,22 +143,10 @@ namespace LT.WCF.DesktopClient.WcfServiceReference {
     public interface IWcfService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/GetOrders", ReplyAction="http://tempuri.org/IWcfService/GetOrdersResponse")]
-        LT.WCF.DesktopClient.WcfServiceReference.Order[] GetOrders(string id);
+        LT.WCF.DesktopClient.WcfServiceReference.OrderAndOrderItemsAndProducts[] GetOrders(string id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/GetOrders", ReplyAction="http://tempuri.org/IWcfService/GetOrdersResponse")]
-        System.Threading.Tasks.Task<LT.WCF.DesktopClient.WcfServiceReference.Order[]> GetOrdersAsync(string id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/GetOrderItems", ReplyAction="http://tempuri.org/IWcfService/GetOrderItemsResponse")]
-        LT.WCF.DesktopClient.WcfServiceReference.OrderItem[] GetOrderItems(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/GetOrderItems", ReplyAction="http://tempuri.org/IWcfService/GetOrderItemsResponse")]
-        System.Threading.Tasks.Task<LT.WCF.DesktopClient.WcfServiceReference.OrderItem[]> GetOrderItemsAsync(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/GetProducts", ReplyAction="http://tempuri.org/IWcfService/GetProductsResponse")]
-        LT.WCF.DesktopClient.WcfServiceReference.Product[] GetProducts(int id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/GetProducts", ReplyAction="http://tempuri.org/IWcfService/GetProductsResponse")]
-        System.Threading.Tasks.Task<LT.WCF.DesktopClient.WcfServiceReference.Product[]> GetProductsAsync(int id);
+        System.Threading.Tasks.Task<LT.WCF.DesktopClient.WcfServiceReference.OrderAndOrderItemsAndProducts[]> GetOrdersAsync(string id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/CloseOrder", ReplyAction="http://tempuri.org/IWcfService/CloseOrderResponse")]
         void CloseOrder(int id);
@@ -380,28 +182,12 @@ namespace LT.WCF.DesktopClient.WcfServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public LT.WCF.DesktopClient.WcfServiceReference.Order[] GetOrders(string id) {
+        public LT.WCF.DesktopClient.WcfServiceReference.OrderAndOrderItemsAndProducts[] GetOrders(string id) {
             return base.Channel.GetOrders(id);
         }
         
-        public System.Threading.Tasks.Task<LT.WCF.DesktopClient.WcfServiceReference.Order[]> GetOrdersAsync(string id) {
+        public System.Threading.Tasks.Task<LT.WCF.DesktopClient.WcfServiceReference.OrderAndOrderItemsAndProducts[]> GetOrdersAsync(string id) {
             return base.Channel.GetOrdersAsync(id);
-        }
-        
-        public LT.WCF.DesktopClient.WcfServiceReference.OrderItem[] GetOrderItems(int id) {
-            return base.Channel.GetOrderItems(id);
-        }
-        
-        public System.Threading.Tasks.Task<LT.WCF.DesktopClient.WcfServiceReference.OrderItem[]> GetOrderItemsAsync(int id) {
-            return base.Channel.GetOrderItemsAsync(id);
-        }
-        
-        public LT.WCF.DesktopClient.WcfServiceReference.Product[] GetProducts(int id) {
-            return base.Channel.GetProducts(id);
-        }
-        
-        public System.Threading.Tasks.Task<LT.WCF.DesktopClient.WcfServiceReference.Product[]> GetProductsAsync(int id) {
-            return base.Channel.GetProductsAsync(id);
         }
         
         public void CloseOrder(int id) {

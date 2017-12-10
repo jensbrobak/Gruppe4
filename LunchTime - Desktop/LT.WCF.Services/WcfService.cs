@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.ServiceModel;
 using LT.WCF.Data;
@@ -14,31 +16,30 @@ namespace LT.WCF.Services
         // Db contexten bliver initialiseret således at vi kan kommunikere med dbset klasserne og derfra databasen
         private readonly WcfDbContext _context = new WcfDbContext();
 
-        public List<Order> GetOrders(string id)
-        {
-            // LINQ query med lambda udtryk som går igennem alle ordre hvor kunde id er lig med angivet id samt sortere efter nyeste ordredato
-            var oQuery = _context.Orders.Where(o => o.CustomerId == id).OrderByDescending(o => o.OrderDate);
+          public IQueryable<OrderAndOrderItemsAndProducts> GetOrders(string id)
+          {
+            // LINQ query med lambda udtryk som går igennem alle ordre hvor kunde id er lig med angivet id samt er "Aktiv"
+            var oQuery = from o in _context.Orders where o.CustomerId == id && o.OrderStatus == "Aktiv"
+            // vi joiner således vores OrderItem på ordre id hvor det er lig med ordre id fra vores fundne ordre          
+                  join oi in _context.OrderItems on o.Id equals oi.OrderId
+            // her joiner vi så vores Products på produkt id'et fra vores ordrelinje hvor det er lig med produkt id fra produkt
+                  join p in _context.Products on oi.ProductId equals p.Id
+            // her initialisere vi vores model klasse "OrderAndOrderItemsAndProducts" som vi har lavet for at flette entity modellerne sammen og angiver de metoder vi vil have med
+                  select new OrderAndOrderItemsAndProducts()
+                  {
 
-            return oQuery.ToList();
-        }
+                      OrdreDato = o.OrderDate,
+                      OrdreId = o.Id,
+                      ProduktNavn = p.Name,
+                      ProduktBeskrivelse =  p.Description,
+                      ProduktAntal = oi.Quantity,
+                      OrdreStatus = o.OrderStatus
+  
+                  };
+             // her returnere vi vores query og samtidigt sortere vores ordre efter nyeste dato
+              return oQuery.OrderByDescending(o => o.OrdreDato);
 
-        public List<OrderItem> GetOrderItems(int id)
-        {
-
-            // LINQ query med lambda udtryk som går igennem alle ordre hvor ordre id er lig med angivet id
-            var oiQuery = _context.OrderItems.Where(oi => oi.OrderId == id);
-
-            return oiQuery.ToList();
-        }
-
-        public List<Product> GetProducts(int id)
-        {
-            // LINQ query med lambda udtryk som går igennem alle produkter hvor produkt id er lig med angivet id
-            var pQuery = _context.Products.Where(p => p.Id == id);
-
-            return pQuery.ToList();
-
-        }
+          }
 
         // Her angiver vi operation behavior med indikation at det er nødvendigt med transaktion(er)
         [OperationBehavior(TransactionScopeRequired = true)]
@@ -46,7 +47,7 @@ namespace LT.WCF.Services
         {
             // LINQ query med lambda udtryk som går igennem alle ordre hvor ordre id er lig med angivet id
             var oQuery = _context.Orders.Where(o => o.Id == id);
-            // Det første element i queryen fremfindes og ordrestatusen opdateres med "afsluttet" i model laget
+            // Det første element i queryen fremfindes og ordrestatusen opdateres med "Afsluttet" i model laget
             oQuery.First().OrderStatus = "Afsluttet";
             // Alle ændringer bliver endeligt gemt i databasen
             _context.SaveChanges();

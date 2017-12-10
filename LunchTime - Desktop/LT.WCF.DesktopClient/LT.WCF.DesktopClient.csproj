@@ -82,13 +82,7 @@
     <None Include="Connected Services\WcfServiceReference\item2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\WcfServiceReference\LT.WCF.DesktopClient.WcfServiceReference.Order.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\WcfServiceReference\LT.WCF.DesktopClient.WcfServiceReference.OrderItem.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\WcfServiceReference\LT.WCF.DesktopClient.WcfServiceReference.Product.datasource">
+    <None Include="Connected Services\WcfServiceReference\LT.WCF.DesktopClient.WcfServiceReference.OrderAndOrderItemsAndProducts.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\WcfServiceReference\WcfService.wsdl" />

@@ -17,32 +17,27 @@ namespace LT.WCF.DesktopClient
         private void ScanId_Click(object sender, EventArgs e)
         {
             try
-            {    
+            {
+                ordreDataGridView.DataSource = "";
+
                 _idNr = idNrBox.Text;
                 // ordren bliver hentet ud fra id nr og vist i ordreDataGridView
                 ordreDataGridView.DataSource = _client.GetOrders(_idNr);
+
+                // vi tjekker størrelserne på vores elementer for at undgå eventuelle null pointer fejl
+                if (_client.GetOrders(_idNr).Length == 0 && ordreDataGridView.Rows.Count == 0)
+                    {
+                    MessageBox.Show(@"ID NR IKKE FUNDET ELLER INGEN AKTIVE ORDRE PÅ DETTE ID");
+                    }
+
             }
             catch (Exception)
-
             {
-                MessageBox.Show(@"ID NR IKKE FUNDET - PRØV IGEN!");
+                MessageBox.Show(@"DER GIK ET ELLER ANDET GALT");
             }
-
         }
 
-        private void OrdreDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
-            var rowindex = ordreDataGridView.CurrentCell.RowIndex;
 
-            var id = ordreDataGridView.Rows[rowindex].Cells[1].Value.ToString();
-
-            produktDataGridView.DataSource = "";
-
-            // ordrelinjen bliver fundet via. nuværende række samt celle på plads 1 og vist i ordreDataGridView
-            ordreItemsDataGridView.DataSource = _client.GetOrderItems(int.Parse(id));
-
-        }
 
         private void AfslutOrdre_Click(object sender, EventArgs e)
         {
@@ -56,10 +51,8 @@ namespace LT.WCF.DesktopClient
 
                 MessageBox.Show($@"Ordre #{id} er blevet afsluttet", $@"ID NR: {_idNr} - Ordre afsluttet");
 
-                // Her "tømmer" vi alle felterne efter afsluttet ordre
+                // her "tømmer" vi vores ordredatagridview efter afsluttet ordre
                 ordreDataGridView.DataSource = "";
-                ordreItemsDataGridView.DataSource = "";
-                produktDataGridView.DataSource = "";
 
                 idNrBox.Text = @"Scan ID-nr";
             }
@@ -69,22 +62,5 @@ namespace LT.WCF.DesktopClient
             }
 
         }
-
-        private void OrdreItemsDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                var rowindex = ordreItemsDataGridView.CurrentCell.RowIndex;
-
-                var id = ordreItemsDataGridView.Rows[rowindex].Cells[0].Value.ToString();
-                // produkt id'et bliver fundet via. nuværende række samt celle på plads 0 og vist i produktDataGridView
-                produktDataGridView.DataSource = _client.GetProducts(int.Parse(id));
-            }
-            catch (Exception)
-            {
-                MessageBox.Show(@"DER GIK ET ELLER ANDET GALT");
-            }
-        }
-
     }
 }
