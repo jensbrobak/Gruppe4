@@ -8,7 +8,9 @@ namespace LT.WCF.DesktopClient
     {
         // WCF Service klienten bliver initialiseret således at vi kan kommunikere med hosten
         private readonly WcfServiceReference.WcfServiceClient _client = new WcfServiceReference.WcfServiceClient();
+
         private string _idNr;
+
         public Desktop()
         {
             InitializeComponent();
@@ -21,14 +23,14 @@ namespace LT.WCF.DesktopClient
                 ordreDataGridView.DataSource = "";
 
                 _idNr = idNrBox.Text;
-                // ordren bliver hentet ud fra id nr og vist i ordreDataGridView
-                ordreDataGridView.DataSource = _client.GetOrders(_idNr);
+                // aktive ordre bliver hentet ud fra id nr og vist i ordreDataGridView
+                ordreDataGridView.DataSource = _client.GetOrdersById(_idNr);
 
                 // vi tjekker størrelserne på vores elementer for at undgå eventuelle null pointer fejl
-                if (_client.GetOrders(_idNr).Length == 0 && ordreDataGridView.Rows.Count == 0)
-                    {
+                if (_client.GetOrdersById(_idNr).Length == 0 && ordreDataGridView.Rows.Count == 0)
+                {
                     MessageBox.Show(@"ID NR IKKE FUNDET ELLER INGEN AKTIVE ORDRE PÅ DETTE ID");
-                    }
+                }
 
             }
             catch (Exception)
@@ -36,8 +38,6 @@ namespace LT.WCF.DesktopClient
                 MessageBox.Show(@"DER GIK ET ELLER ANDET GALT");
             }
         }
-
-
 
         private void AfslutOrdre_Click(object sender, EventArgs e)
         {
@@ -58,9 +58,32 @@ namespace LT.WCF.DesktopClient
             }
             catch (Exception)
             {
-                MessageBox.Show(@"DER ER IKKE MARKERET NOGEN ORDRE - PRØV AT SØG ET ID NR OP!");
+                MessageBox.Show(@"DER ER IKKE VALGT NOGEN ORDRE - PRØV AT SØG ET ID NR OP!");
             }
 
+        }
+
+        private void HentAlleAktiveOrdreKnap_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                ordreDataGridView.DataSource = "";
+                idNrBox.Text = @"Scan ID-nr";
+
+                // alle aktive ordre bliver hentet og vist i ordreDataGridView
+                ordreDataGridView.DataSource = _client.GetOrders();
+
+                // vi tjekker størrelserne på vores elementer for at undgå eventuelle null pointer fejl
+                if (_client.GetOrders().Length == 0 && ordreDataGridView.Rows.Count == 0)
+                {
+                    MessageBox.Show(@"DER ER IKKE PT. NOGEN AKTIVE ORDRE!");
+                }
+
+            }
+            catch (Exception)
+            {
+                MessageBox.Show(@"DER GIK ET ELLER ANDET GALT");
+            }
         }
     }
 }

@@ -38,10 +38,13 @@
             this.ordreGroupBox = new System.Windows.Forms.GroupBox();
             this.ScanGroupBox = new System.Windows.Forms.GroupBox();
             this.AfslutGroupBox = new System.Windows.Forms.GroupBox();
+            this.VisAlleOrdreGroupBox = new System.Windows.Forms.GroupBox();
+            this.visAlleOrdreKnap = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ordreDataGridView)).BeginInit();
             this.ordreGroupBox.SuspendLayout();
             this.ScanGroupBox.SuspendLayout();
             this.AfslutGroupBox.SuspendLayout();
+            this.VisAlleOrdreGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // ordreDataGridView
@@ -80,7 +83,7 @@
             // 
             // afslutOrdreKnap
             // 
-            this.afslutOrdreKnap.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.afslutOrdreKnap.ForeColor = System.Drawing.Color.DarkRed;
             this.afslutOrdreKnap.Location = new System.Drawing.Point(18, 40);
             this.afslutOrdreKnap.Name = "afslutOrdreKnap";
             this.afslutOrdreKnap.Size = new System.Drawing.Size(379, 68);
@@ -123,7 +126,7 @@
             this.ordreGroupBox.Size = new System.Drawing.Size(1379, 685);
             this.ordreGroupBox.TabIndex = 9;
             this.ordreGroupBox.TabStop = false;
-            this.ordreGroupBox.Text = "Vælg Ordre (klik på ordre)";
+            this.ordreGroupBox.Text = "Vælg Ordre (som skal afsluttes)";
             // 
             // ScanGroupBox
             // 
@@ -135,7 +138,7 @@
             this.ScanGroupBox.Size = new System.Drawing.Size(737, 119);
             this.ScanGroupBox.TabIndex = 10;
             this.ScanGroupBox.TabStop = false;
-            this.ScanGroupBox.Text = "Scan ID-nr (søg ordre op på id-nr)";
+            this.ScanGroupBox.Text = "Scan ID-nr (søg aktive ordre op på id-nr)";
             // 
             // AfslutGroupBox
             // 
@@ -147,7 +150,30 @@
             this.AfslutGroupBox.Size = new System.Drawing.Size(415, 133);
             this.AfslutGroupBox.TabIndex = 11;
             this.AfslutGroupBox.TabStop = false;
-            this.AfslutGroupBox.Text = "Afslut Ordre (tryk på knappen)";
+            this.AfslutGroupBox.Text = "Afslut Ordre (for at afslutte ordre)";
+            // 
+            // VisAlleOrdreGroupBox
+            // 
+            this.VisAlleOrdreGroupBox.BackColor = System.Drawing.Color.Transparent;
+            this.VisAlleOrdreGroupBox.Controls.Add(this.visAlleOrdreKnap);
+            this.VisAlleOrdreGroupBox.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.VisAlleOrdreGroupBox.Location = new System.Drawing.Point(782, 46);
+            this.VisAlleOrdreGroupBox.Name = "VisAlleOrdreGroupBox";
+            this.VisAlleOrdreGroupBox.Size = new System.Drawing.Size(264, 119);
+            this.VisAlleOrdreGroupBox.TabIndex = 12;
+            this.VisAlleOrdreGroupBox.TabStop = false;
+            this.VisAlleOrdreGroupBox.Text = "Hent Aktive Ordre";
+            // 
+            // visAlleOrdreKnap
+            // 
+            this.visAlleOrdreKnap.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.visAlleOrdreKnap.Location = new System.Drawing.Point(19, 46);
+            this.visAlleOrdreKnap.Name = "visAlleOrdreKnap";
+            this.visAlleOrdreKnap.Size = new System.Drawing.Size(226, 45);
+            this.visAlleOrdreKnap.TabIndex = 0;
+            this.visAlleOrdreKnap.Text = "Hent aktive ordre";
+            this.visAlleOrdreKnap.UseVisualStyleBackColor = true;
+            this.visAlleOrdreKnap.Click += new System.EventHandler(this.HentAlleAktiveOrdreKnap_Click);
             // 
             // Desktop
             // 
@@ -158,6 +184,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1456, 1089);
+            this.Controls.Add(this.VisAlleOrdreGroupBox);
             this.Controls.Add(this.lunchTimelbld);
             this.Controls.Add(this.lunchTimeLbl);
             this.Controls.Add(this.idNrBox);
@@ -171,6 +198,7 @@
             this.ordreGroupBox.ResumeLayout(false);
             this.ScanGroupBox.ResumeLayout(false);
             this.AfslutGroupBox.ResumeLayout(false);
+            this.VisAlleOrdreGroupBox.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -187,6 +215,8 @@
         private System.Windows.Forms.GroupBox ordreGroupBox;
         private System.Windows.Forms.GroupBox ScanGroupBox;
         private System.Windows.Forms.GroupBox AfslutGroupBox;
+        private System.Windows.Forms.GroupBox VisAlleOrdreGroupBox;
+        private System.Windows.Forms.Button visAlleOrdreKnap;
     }
 }
 

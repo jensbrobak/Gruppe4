@@ -42,6 +42,12 @@
   <wsdl:message name="IWcfService_GetOrders_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetOrdersResponse" />
   </wsdl:message>
+  <wsdl:message name="IWcfService_GetOrdersById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrdersById" />
+  </wsdl:message>
+  <wsdl:message name="IWcfService_GetOrdersById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOrdersByIdResponse" />
+  </wsdl:message>
   <wsdl:message name="IWcfService_CloseOrder_InputMessage">
     <wsdl:part name="parameters" element="tns:CloseOrder" />
   </wsdl:message>
@@ -53,6 +59,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IWcfService/GetOrders" message="tns:IWcfService_GetOrders_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IWcfService/GetOrdersResponse" message="tns:IWcfService_GetOrders_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetOrdersById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWcfService/GetOrdersById" message="tns:IWcfService_GetOrdersById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWcfService/GetOrdersByIdResponse" message="tns:IWcfService_GetOrdersById_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="CloseOrder">
       <wsdl:input wsaw:Action="http://tempuri.org/IWcfService/CloseOrder" message="tns:IWcfService_CloseOrder_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IWcfService/CloseOrderResponse" message="tns:IWcfService_CloseOrder_OutputMessage" />
@@ -63,6 +73,15 @@
     <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
     <wsdl:operation name="GetOrders">
       <soap12:operation soapAction="http://tempuri.org/IWcfService/GetOrders" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrdersById">
+      <soap12:operation soapAction="http://tempuri.org/IWcfService/GetOrdersById" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

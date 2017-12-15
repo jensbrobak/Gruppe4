@@ -13,7 +13,10 @@ namespace LT.WCF.Services
     {
         // Vi markere med operation contract for at indikere hvad metoder vi vil have med i service kontrakten
         [OperationContract]
-        IQueryable<OrderAndOrderItemsAndProducts> GetOrders(string id);
+        IQueryable<OrderAndOrderItemsAndProducts> GetOrders();
+
+        [OperationContract]
+        IQueryable<OrderAndOrderItemsAndProducts> GetOrdersById(string id);
 
         [OperationContract]
         void CloseOrder(int id);

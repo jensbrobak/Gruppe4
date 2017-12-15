@@ -16,7 +16,32 @@ namespace LT.WCF.Services
         // Db contexten bliver initialiseret således at vi kan kommunikere med dbset klasserne og derfra databasen
         private readonly WcfDbContext _context = new WcfDbContext();
 
-          public IQueryable<OrderAndOrderItemsAndProducts> GetOrders(string id)
+        public IQueryable<OrderAndOrderItemsAndProducts> GetOrders()
+        {
+            // LINQ query med lambda udtryk som går igennem alle ordre hvor ordre er "Aktiv"
+            var oQuery = from o in _context.Orders
+                where o.OrderStatus == "Aktiv"
+                // vi joiner således vores OrderItem på ordre id hvor det er lig med ordre id fra vores fundne ordre          
+                join oi in _context.OrderItems on o.Id equals oi.OrderId
+                // her joiner vi så vores Products på produkt id'et fra vores ordrelinje hvor det er lig med produkt id fra produkt
+                join p in _context.Products on oi.ProductId equals p.Id
+                // her initialisere vi vores model klasse "OrderAndOrderItemsAndProducts" som vi har lavet for at flette entity modellerne sammen og angiver de metoder vi vil have med
+                select new OrderAndOrderItemsAndProducts()
+                {
+
+                    OrdreDato = o.OrderDate,
+                    OrdreId = o.Id,
+                    ProduktNavn = p.Name,
+                    ProduktBeskrivelse = p.Description,
+                    ProduktAntal = oi.Quantity,
+                    OrdreStatus = o.OrderStatus
+
+                };
+            // her returnere vi vores query og samtidigt sortere vores ordre efter nyeste dato
+            return oQuery.OrderByDescending(o => o.OrdreDato);
+        }
+
+        public IQueryable<OrderAndOrderItemsAndProducts> GetOrdersById(string id)
           {
             // LINQ query med lambda udtryk som går igennem alle ordre hvor kunde id er lig med angivet id samt er "Aktiv"
             var oQuery = from o in _context.Orders where o.CustomerId == id && o.OrderStatus == "Aktiv"

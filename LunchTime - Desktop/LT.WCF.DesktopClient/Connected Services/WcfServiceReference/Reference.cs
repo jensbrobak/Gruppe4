@@ -143,10 +143,16 @@ namespace LT.WCF.DesktopClient.WcfServiceReference {
     public interface IWcfService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/GetOrders", ReplyAction="http://tempuri.org/IWcfService/GetOrdersResponse")]
-        LT.WCF.DesktopClient.WcfServiceReference.OrderAndOrderItemsAndProducts[] GetOrders(string id);
+        LT.WCF.DesktopClient.WcfServiceReference.OrderAndOrderItemsAndProducts[] GetOrders();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/GetOrders", ReplyAction="http://tempuri.org/IWcfService/GetOrdersResponse")]
-        System.Threading.Tasks.Task<LT.WCF.DesktopClient.WcfServiceReference.OrderAndOrderItemsAndProducts[]> GetOrdersAsync(string id);
+        System.Threading.Tasks.Task<LT.WCF.DesktopClient.WcfServiceReference.OrderAndOrderItemsAndProducts[]> GetOrdersAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/GetOrdersById", ReplyAction="http://tempuri.org/IWcfService/GetOrdersByIdResponse")]
+        LT.WCF.DesktopClient.WcfServiceReference.OrderAndOrderItemsAndProducts[] GetOrdersById(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/GetOrdersById", ReplyAction="http://tempuri.org/IWcfService/GetOrdersByIdResponse")]
+        System.Threading.Tasks.Task<LT.WCF.DesktopClient.WcfServiceReference.OrderAndOrderItemsAndProducts[]> GetOrdersByIdAsync(string id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/CloseOrder", ReplyAction="http://tempuri.org/IWcfService/CloseOrderResponse")]
         void CloseOrder(int id);
@@ -182,12 +188,20 @@ namespace LT.WCF.DesktopClient.WcfServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public LT.WCF.DesktopClient.WcfServiceReference.OrderAndOrderItemsAndProducts[] GetOrders(string id) {
-            return base.Channel.GetOrders(id);
+        public LT.WCF.DesktopClient.WcfServiceReference.OrderAndOrderItemsAndProducts[] GetOrders() {
+            return base.Channel.GetOrders();
         }
         
-        public System.Threading.Tasks.Task<LT.WCF.DesktopClient.WcfServiceReference.OrderAndOrderItemsAndProducts[]> GetOrdersAsync(string id) {
-            return base.Channel.GetOrdersAsync(id);
+        public System.Threading.Tasks.Task<LT.WCF.DesktopClient.WcfServiceReference.OrderAndOrderItemsAndProducts[]> GetOrdersAsync() {
+            return base.Channel.GetOrdersAsync();
+        }
+        
+        public LT.WCF.DesktopClient.WcfServiceReference.OrderAndOrderItemsAndProducts[] GetOrdersById(string id) {
+            return base.Channel.GetOrdersById(id);
+        }
+        
+        public System.Threading.Tasks.Task<LT.WCF.DesktopClient.WcfServiceReference.OrderAndOrderItemsAndProducts[]> GetOrdersByIdAsync(string id) {
+            return base.Channel.GetOrdersByIdAsync(id);
         }
         
         public void CloseOrder(int id) {
