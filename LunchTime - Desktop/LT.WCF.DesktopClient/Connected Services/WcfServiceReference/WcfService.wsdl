@@ -48,6 +48,36 @@
   <wsdl:message name="IWcfService_GetOrdersById_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetOrdersByIdResponse" />
   </wsdl:message>
+  <wsdl:message name="IWcfService_GetProducts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProducts" />
+  </wsdl:message>
+  <wsdl:message name="IWcfService_GetProducts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWcfService_GetProductById_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductById" />
+  </wsdl:message>
+  <wsdl:message name="IWcfService_GetProductById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetProductByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWcfService_CreateProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateProduct" />
+  </wsdl:message>
+  <wsdl:message name="IWcfService_CreateProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWcfService_UpdateProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateProduct" />
+  </wsdl:message>
+  <wsdl:message name="IWcfService_UpdateProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateProductResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWcfService_DeleteProduct_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProduct" />
+  </wsdl:message>
+  <wsdl:message name="IWcfService_DeleteProduct_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteProductResponse" />
+  </wsdl:message>
   <wsdl:message name="IWcfService_CloseOrder_InputMessage">
     <wsdl:part name="parameters" element="tns:CloseOrder" />
   </wsdl:message>
@@ -62,6 +92,26 @@
     <wsdl:operation name="GetOrdersById">
       <wsdl:input wsaw:Action="http://tempuri.org/IWcfService/GetOrdersById" message="tns:IWcfService_GetOrdersById_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IWcfService/GetOrdersByIdResponse" message="tns:IWcfService_GetOrdersById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProducts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWcfService/GetProducts" message="tns:IWcfService_GetProducts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWcfService/GetProductsResponse" message="tns:IWcfService_GetProducts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetProductById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWcfService/GetProductById" message="tns:IWcfService_GetProductById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWcfService/GetProductByIdResponse" message="tns:IWcfService_GetProductById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWcfService/CreateProduct" message="tns:IWcfService_CreateProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWcfService/CreateProductResponse" message="tns:IWcfService_CreateProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWcfService/UpdateProduct" message="tns:IWcfService_UpdateProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWcfService/UpdateProductResponse" message="tns:IWcfService_UpdateProduct_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProduct">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWcfService/DeleteProduct" message="tns:IWcfService_DeleteProduct_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWcfService/DeleteProductResponse" message="tns:IWcfService_DeleteProduct_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="CloseOrder">
       <wsdl:input wsaw:Action="http://tempuri.org/IWcfService/CloseOrder" message="tns:IWcfService_CloseOrder_InputMessage" />
@@ -82,6 +132,51 @@
     </wsdl:operation>
     <wsdl:operation name="GetOrdersById">
       <soap12:operation soapAction="http://tempuri.org/IWcfService/GetOrdersById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProducts">
+      <soap12:operation soapAction="http://tempuri.org/IWcfService/GetProducts" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetProductById">
+      <soap12:operation soapAction="http://tempuri.org/IWcfService/GetProductById" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateProduct">
+      <soap12:operation soapAction="http://tempuri.org/IWcfService/CreateProduct" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateProduct">
+      <soap12:operation soapAction="http://tempuri.org/IWcfService/UpdateProduct" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteProduct">
+      <soap12:operation soapAction="http://tempuri.org/IWcfService/DeleteProduct" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

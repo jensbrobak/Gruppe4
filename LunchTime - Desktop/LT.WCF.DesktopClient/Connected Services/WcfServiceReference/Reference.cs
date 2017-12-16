@@ -138,6 +138,115 @@ namespace LT.WCF.DesktopClient.WcfServiceReference {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Product", Namespace="http://schemas.datacontract.org/2004/07/LT.WCF.Entities")]
+    [System.SerializableAttribute()]
+    public partial class Product : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double PriceField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int StockField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double Price {
+            get {
+                return this.PriceField;
+            }
+            set {
+                if ((this.PriceField.Equals(value) != true)) {
+                    this.PriceField = value;
+                    this.RaisePropertyChanged("Price");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Stock {
+            get {
+                return this.StockField;
+            }
+            set {
+                if ((this.StockField.Equals(value) != true)) {
+                    this.StockField = value;
+                    this.RaisePropertyChanged("Stock");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="WcfServiceReference.IWcfService")]
     public interface IWcfService {
@@ -153,6 +262,36 @@ namespace LT.WCF.DesktopClient.WcfServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/GetOrdersById", ReplyAction="http://tempuri.org/IWcfService/GetOrdersByIdResponse")]
         System.Threading.Tasks.Task<LT.WCF.DesktopClient.WcfServiceReference.OrderAndOrderItemsAndProducts[]> GetOrdersByIdAsync(string id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/GetProducts", ReplyAction="http://tempuri.org/IWcfService/GetProductsResponse")]
+        LT.WCF.DesktopClient.WcfServiceReference.Product[] GetProducts();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/GetProducts", ReplyAction="http://tempuri.org/IWcfService/GetProductsResponse")]
+        System.Threading.Tasks.Task<LT.WCF.DesktopClient.WcfServiceReference.Product[]> GetProductsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/GetProductById", ReplyAction="http://tempuri.org/IWcfService/GetProductByIdResponse")]
+        LT.WCF.DesktopClient.WcfServiceReference.Product GetProductById(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/GetProductById", ReplyAction="http://tempuri.org/IWcfService/GetProductByIdResponse")]
+        System.Threading.Tasks.Task<LT.WCF.DesktopClient.WcfServiceReference.Product> GetProductByIdAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/CreateProduct", ReplyAction="http://tempuri.org/IWcfService/CreateProductResponse")]
+        void CreateProduct(string name, string description, double price, int stock);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/CreateProduct", ReplyAction="http://tempuri.org/IWcfService/CreateProductResponse")]
+        System.Threading.Tasks.Task CreateProductAsync(string name, string description, double price, int stock);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/UpdateProduct", ReplyAction="http://tempuri.org/IWcfService/UpdateProductResponse")]
+        void UpdateProduct(int id, string name, string description, double price, int stock);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/UpdateProduct", ReplyAction="http://tempuri.org/IWcfService/UpdateProductResponse")]
+        System.Threading.Tasks.Task UpdateProductAsync(int id, string name, string description, double price, int stock);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/DeleteProduct", ReplyAction="http://tempuri.org/IWcfService/DeleteProductResponse")]
+        void DeleteProduct(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/DeleteProduct", ReplyAction="http://tempuri.org/IWcfService/DeleteProductResponse")]
+        System.Threading.Tasks.Task DeleteProductAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IWcfService/CloseOrder", ReplyAction="http://tempuri.org/IWcfService/CloseOrderResponse")]
         void CloseOrder(int id);
@@ -202,6 +341,46 @@ namespace LT.WCF.DesktopClient.WcfServiceReference {
         
         public System.Threading.Tasks.Task<LT.WCF.DesktopClient.WcfServiceReference.OrderAndOrderItemsAndProducts[]> GetOrdersByIdAsync(string id) {
             return base.Channel.GetOrdersByIdAsync(id);
+        }
+        
+        public LT.WCF.DesktopClient.WcfServiceReference.Product[] GetProducts() {
+            return base.Channel.GetProducts();
+        }
+        
+        public System.Threading.Tasks.Task<LT.WCF.DesktopClient.WcfServiceReference.Product[]> GetProductsAsync() {
+            return base.Channel.GetProductsAsync();
+        }
+        
+        public LT.WCF.DesktopClient.WcfServiceReference.Product GetProductById(int id) {
+            return base.Channel.GetProductById(id);
+        }
+        
+        public System.Threading.Tasks.Task<LT.WCF.DesktopClient.WcfServiceReference.Product> GetProductByIdAsync(int id) {
+            return base.Channel.GetProductByIdAsync(id);
+        }
+        
+        public void CreateProduct(string name, string description, double price, int stock) {
+            base.Channel.CreateProduct(name, description, price, stock);
+        }
+        
+        public System.Threading.Tasks.Task CreateProductAsync(string name, string description, double price, int stock) {
+            return base.Channel.CreateProductAsync(name, description, price, stock);
+        }
+        
+        public void UpdateProduct(int id, string name, string description, double price, int stock) {
+            base.Channel.UpdateProduct(id, name, description, price, stock);
+        }
+        
+        public System.Threading.Tasks.Task UpdateProductAsync(int id, string name, string description, double price, int stock) {
+            return base.Channel.UpdateProductAsync(id, name, description, price, stock);
+        }
+        
+        public void DeleteProduct(int id) {
+            base.Channel.DeleteProduct(id);
+        }
+        
+        public System.Threading.Tasks.Task DeleteProductAsync(int id) {
+            return base.Channel.DeleteProductAsync(id);
         }
         
         public void CloseOrder(int id) {

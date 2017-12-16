@@ -58,10 +58,19 @@
     <Compile Include="Desktop.Designer.cs">
       <DependentUpon>Desktop.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProductCRUD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductCRUD.Designer.cs">
+      <DependentUpon>ProductCRUD.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Desktop.resx">
       <DependentUpon>Desktop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductCRUD.resx">
+      <DependentUpon>ProductCRUD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -83,6 +92,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\WcfServiceReference\LT.WCF.DesktopClient.WcfServiceReference.OrderAndOrderItemsAndProducts.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WcfServiceReference\LT.WCF.DesktopClient.WcfServiceReference.Product.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\WcfServiceReference\WcfService.wsdl" />

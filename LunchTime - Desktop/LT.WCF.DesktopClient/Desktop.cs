@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace LT.WCF.DesktopClient
@@ -84,6 +83,12 @@ namespace LT.WCF.DesktopClient
             {
                 MessageBox.Show(@"DER GIK ET ELLER ANDET GALT");
             }
+        }
+
+        private void HåndterProdukterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // ProductCRUD vinduet bliver initialiseret således at vi kan håndtere produkter
+            new ProductCRUD().Show();
         }
     }
 }

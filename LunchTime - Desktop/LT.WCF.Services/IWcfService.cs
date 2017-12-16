@@ -19,6 +19,21 @@ namespace LT.WCF.Services
         IQueryable<OrderAndOrderItemsAndProducts> GetOrdersById(string id);
 
         [OperationContract]
+        List<Product> GetProducts();
+
+        [OperationContract]
+        Product GetProductById(int id);
+
+        [OperationContract]
+        void CreateProduct(string name, string description, double price, int stock);
+
+        [OperationContract]
+        void UpdateProduct(int id, string name, string description, double price, int stock);
+
+        [OperationContract]
+        void DeleteProduct(int id);
+
+        [OperationContract]
         void CloseOrder(int id);
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.ServiceModel;
 using LT.WCF.Data;
@@ -66,6 +67,21 @@ namespace LT.WCF.Services
 
           }
 
+        public List<Product> GetProducts()
+        {
+            var pQuery = _context.Products.ToList();
+
+            return pQuery;
+
+        }
+
+        public Product GetProductById(int id)
+        {
+            var pQuery = _context.Products.Where(p => p.Id == id);
+
+            return pQuery.First();
+        }
+
         // Her angiver vi operation behavior med indikation at det er nødvendigt med transaktion(er)
         [OperationBehavior(TransactionScopeRequired = true)]
         public void CloseOrder(int id)
@@ -77,6 +93,42 @@ namespace LT.WCF.Services
             // Alle ændringer bliver endeligt gemt i databasen
             _context.SaveChanges();
         }
+
+        [OperationBehavior(TransactionScopeRequired = true)]
+        public void CreateProduct(string name, string description, double price, int stock)
+        {
+            var pQuery = _context.Products.First();
+
+            pQuery.Name = name;
+            pQuery.Description = description;
+            pQuery.Price = price;
+            pQuery.Stock = stock;
+
+            _context.Products.Add(pQuery);
+            _context.SaveChanges();
+        }
+
+        [OperationBehavior(TransactionScopeRequired = true)]
+        public void UpdateProduct(int id, string name, string description, double price, int stock)
+        {
+            var pQuery = _context.Products.Where(p => p.Id == id).First();
+            pQuery.Name = name;
+            pQuery.Description = description;
+            pQuery.Price = price;
+            pQuery.Stock = stock;
+
+            _context.SaveChanges();
+        }
+
+        [OperationBehavior(TransactionScopeRequired = true)]
+        public void DeleteProduct(int id)
+        {
+            var pQuery = _context.Products.Where(p => p.Id == id);
+
+            _context.Products.Remove(pQuery.First());
+            _context.SaveChanges();
+        }
+
 
         public void Dispose()
         {
