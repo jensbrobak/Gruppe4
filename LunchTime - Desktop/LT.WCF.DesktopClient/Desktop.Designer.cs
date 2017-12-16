@@ -58,12 +58,12 @@
             this.ordreDataGridView.AllowUserToResizeColumns = false;
             this.ordreDataGridView.AllowUserToResizeRows = false;
             this.ordreDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ordreDataGridView.Location = new System.Drawing.Point(17, 40);
+            this.ordreDataGridView.Location = new System.Drawing.Point(6, 30);
             this.ordreDataGridView.MultiSelect = false;
             this.ordreDataGridView.Name = "ordreDataGridView";
             this.ordreDataGridView.ReadOnly = true;
             this.ordreDataGridView.RowTemplate.Height = 33;
-            this.ordreDataGridView.Size = new System.Drawing.Size(1353, 633);
+            this.ordreDataGridView.Size = new System.Drawing.Size(1367, 649);
             this.ordreDataGridView.TabIndex = 0;
             // 
             // idScanKnap
@@ -79,7 +79,7 @@
             // 
             // idNrBox
             // 
-            this.idNrBox.Location = new System.Drawing.Point(47, 119);
+            this.idNrBox.Location = new System.Drawing.Point(47, 118);
             this.idNrBox.Name = "idNrBox";
             this.idNrBox.Size = new System.Drawing.Size(537, 31);
             this.idNrBox.TabIndex = 3;
@@ -142,7 +142,7 @@
             this.ScanGroupBox.Size = new System.Drawing.Size(737, 119);
             this.ScanGroupBox.TabIndex = 10;
             this.ScanGroupBox.TabStop = false;
-            this.ScanGroupBox.Text = "Scan ID-nr (søg aktive ordre op på id-nr)";
+            this.ScanGroupBox.Text = "Scan ID-nr (søg aktive ordre(r) op på id-nr)";
             // 
             // AfslutGroupBox
             // 
@@ -163,19 +163,19 @@
             this.VisAlleOrdreGroupBox.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.VisAlleOrdreGroupBox.Location = new System.Drawing.Point(782, 69);
             this.VisAlleOrdreGroupBox.Name = "VisAlleOrdreGroupBox";
-            this.VisAlleOrdreGroupBox.Size = new System.Drawing.Size(264, 119);
+            this.VisAlleOrdreGroupBox.Size = new System.Drawing.Size(323, 119);
             this.VisAlleOrdreGroupBox.TabIndex = 12;
             this.VisAlleOrdreGroupBox.TabStop = false;
-            this.VisAlleOrdreGroupBox.Text = "Hent Aktive Ordre";
+            this.VisAlleOrdreGroupBox.Text = "Hent Ordrer (viser alle aktive ordre(r))";
             // 
             // visAlleOrdreKnap
             // 
             this.visAlleOrdreKnap.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.visAlleOrdreKnap.Location = new System.Drawing.Point(19, 46);
+            this.visAlleOrdreKnap.Location = new System.Drawing.Point(37, 46);
             this.visAlleOrdreKnap.Name = "visAlleOrdreKnap";
-            this.visAlleOrdreKnap.Size = new System.Drawing.Size(226, 45);
+            this.visAlleOrdreKnap.Size = new System.Drawing.Size(250, 45);
             this.visAlleOrdreKnap.TabIndex = 0;
-            this.visAlleOrdreKnap.Text = "Hent aktive ordre";
+            this.visAlleOrdreKnap.Text = "Hent ordre(r)";
             this.visAlleOrdreKnap.UseVisualStyleBackColor = true;
             this.visAlleOrdreKnap.Click += new System.EventHandler(this.HentAlleAktiveOrdreKnap_Click);
             // 
@@ -187,7 +187,7 @@
             this.toolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1456, 42);
+            this.menuStrip1.Size = new System.Drawing.Size(1456, 40);
             this.menuStrip1.TabIndex = 13;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -197,7 +197,7 @@
             this.håndterProdukterToolStripMenuItem});
             this.toolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(90, 38);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(90, 36);
             this.toolStripMenuItem1.Text = "Menu";
             // 
             // håndterProdukterToolStripMenuItem

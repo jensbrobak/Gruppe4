@@ -30,10 +30,10 @@ namespace LT.WCF.DesktopClient
             _client.CreateProduct(produktNavnTextBox.Text, produktBeskrivelseTextBox.Text, double.Parse(produktPrisTextBox.Text), int.Parse(produktLagerTextBox.Text));
 
             produktIdTextBox.Text = "";
-            produktNavnTextBox.Text = "";
-            produktBeskrivelseTextBox.Text = "";
-            produktPrisTextBox.Text = "";
-            produktLagerTextBox.Text = "";
+            produktNavnTextBox.Text = @"Indtast produktnavn";
+            produktBeskrivelseTextBox.Text = @"Indtast produktbeskrivelse";
+            produktPrisTextBox.Text = @"Indtast produktpris";
+            produktLagerTextBox.Text = @"Indtast produktlager";
 
             produktDataGridView.DataSource = _client.GetProducts();
         }
@@ -44,10 +44,10 @@ namespace LT.WCF.DesktopClient
             _client.UpdateProduct(int.Parse(produktIdTextBox.Text), produktNavnTextBox.Text, produktBeskrivelseTextBox.Text, double.Parse(produktPrisTextBox.Text), int.Parse(produktLagerTextBox.Text));
 
             produktIdTextBox.Text = "";
-            produktNavnTextBox.Text = "";
-            produktBeskrivelseTextBox.Text = "";
-            produktPrisTextBox.Text = "";
-            produktLagerTextBox.Text = "";
+            produktNavnTextBox.Text = @"Indtast produktnavn";
+            produktBeskrivelseTextBox.Text = @"Indtast produktbeskrivelse";
+            produktPrisTextBox.Text = @"Indtast produktpris";
+            produktLagerTextBox.Text = @"Indtast produktlager";
 
             produktDataGridView.DataSource = _client.GetProducts();
         }
@@ -67,7 +67,7 @@ namespace LT.WCF.DesktopClient
         private void ProduktDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             var rowindex = produktDataGridView.CurrentCell.RowIndex;
-            // ordre id'et bliver fundet via. nuværende række samt celle på plads 0
+
             var id = produktDataGridView.Rows[rowindex].Cells[1].Value.ToString();
 
             produktDataGridView.DataSource = _client.GetProductById(int.Parse(id));

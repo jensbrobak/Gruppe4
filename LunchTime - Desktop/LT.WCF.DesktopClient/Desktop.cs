@@ -28,7 +28,7 @@ namespace LT.WCF.DesktopClient
                 // vi tjekker størrelserne på vores elementer for at undgå eventuelle null pointer fejl
                 if (_client.GetOrdersById(_idNr).Length == 0 && ordreDataGridView.Rows.Count == 0)
                 {
-                    MessageBox.Show(@"ID NR IKKE FUNDET ELLER INGEN AKTIVE ORDRE PÅ DETTE ID");
+                    MessageBox.Show(@"ID NR IKKE FUNDET ELLER INGEN AKTIVE ORDRE(R) PÅ DETTE ID");
                 }
 
             }
@@ -75,7 +75,7 @@ namespace LT.WCF.DesktopClient
                 // vi tjekker størrelserne på vores elementer for at undgå eventuelle null pointer fejl
                 if (_client.GetOrders().Length == 0 && ordreDataGridView.Rows.Count == 0)
                 {
-                    MessageBox.Show(@"DER ER IKKE PT. NOGEN AKTIVE ORDRE!");
+                    MessageBox.Show(@"DER ER IKKE PT. NOGEN AKTIVE ORDRE(R)!");
                 }
 
             }

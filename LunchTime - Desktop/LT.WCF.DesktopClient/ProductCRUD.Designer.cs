@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductCRUD));
             this.produkterGroupBox = new System.Windows.Forms.GroupBox();
             this.produktDataGridView = new System.Windows.Forms.DataGridView();
+            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.opretKnap = new System.Windows.Forms.Button();
             this.opdaterKnap = new System.Windows.Forms.Button();
             this.rydKnap = new System.Windows.Forms.Button();
@@ -46,7 +47,6 @@
             this.produktNavnLbl = new System.Windows.Forms.Label();
             this.produktIdLbl = new System.Windows.Forms.Label();
             this.produktIdTextBox = new System.Windows.Forms.TextBox();
-            this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,8 +54,8 @@
             this.stockDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.produkterGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.produktDataGridView)).BeginInit();
-            this.produktGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
+            this.produktGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // produkterGroupBox
@@ -73,6 +73,10 @@
             // 
             // produktDataGridView
             // 
+            this.produktDataGridView.AllowUserToAddRows = false;
+            this.produktDataGridView.AllowUserToDeleteRows = false;
+            this.produktDataGridView.AllowUserToResizeColumns = false;
+            this.produktDataGridView.AllowUserToResizeRows = false;
             this.produktDataGridView.AutoGenerateColumns = false;
             this.produktDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.produktDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -85,10 +89,15 @@
             this.produktDataGridView.DataSource = this.productBindingSource;
             this.produktDataGridView.Location = new System.Drawing.Point(6, 30);
             this.produktDataGridView.Name = "produktDataGridView";
+            this.produktDataGridView.ReadOnly = true;
             this.produktDataGridView.RowTemplate.Height = 33;
             this.produktDataGridView.Size = new System.Drawing.Size(1163, 378);
             this.produktDataGridView.TabIndex = 0;
             this.produktDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ProduktDataGridView_CellContentClick);
+            // 
+            // productBindingSource
+            // 
+            this.productBindingSource.DataSource = typeof(LT.WCF.DesktopClient.WcfServiceReference.Product);
             // 
             // opretKnap
             // 
@@ -238,39 +247,40 @@
             this.produktIdTextBox.Size = new System.Drawing.Size(345, 31);
             this.produktIdTextBox.TabIndex = 8;
             // 
-            // productBindingSource
-            // 
-            this.productBindingSource.DataSource = typeof(LT.WCF.DesktopClient.WcfServiceReference.Product);
-            // 
             // descriptionDataGridViewTextBoxColumn
             // 
             this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
-            this.descriptionDataGridViewTextBoxColumn.HeaderText = "Produkt Beskrivelse";
+            this.descriptionDataGridViewTextBoxColumn.HeaderText = "ProduktBeskrivelse";
             this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            this.descriptionDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // idDataGridViewTextBoxColumn
             // 
             this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "Produkt Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "ProduktId";
             this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // nameDataGridViewTextBoxColumn
             // 
             this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Produkt Navn";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "ProduktNavn";
             this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // priceDataGridViewTextBoxColumn
             // 
             this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
-            this.priceDataGridViewTextBoxColumn.HeaderText = "Produkt Pris";
+            this.priceDataGridViewTextBoxColumn.HeaderText = "ProduktPris";
             this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            this.priceDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // stockDataGridViewTextBoxColumn
             // 
             this.stockDataGridViewTextBoxColumn.DataPropertyName = "Stock";
-            this.stockDataGridViewTextBoxColumn.HeaderText = "Produkt Lager";
+            this.stockDataGridViewTextBoxColumn.HeaderText = "ProduktLager";
             this.stockDataGridViewTextBoxColumn.Name = "stockDataGridViewTextBoxColumn";
+            this.stockDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // ProductCRUD
             // 
@@ -287,9 +297,9 @@
             this.Load += new System.EventHandler(this.ProductCRUD_Load);
             this.produkterGroupBox.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.produktDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
             this.produktGroupBox.ResumeLayout(false);
             this.produktGroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
