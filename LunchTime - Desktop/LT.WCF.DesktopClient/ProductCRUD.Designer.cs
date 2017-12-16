@@ -32,6 +32,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductCRUD));
             this.produkterGroupBox = new System.Windows.Forms.GroupBox();
             this.produktDataGridView = new System.Windows.Forms.DataGridView();
+            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.stockDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.opretKnap = new System.Windows.Forms.Button();
             this.opdaterKnap = new System.Windows.Forms.Button();
@@ -47,11 +52,6 @@
             this.produktNavnLbl = new System.Windows.Forms.Label();
             this.produktIdLbl = new System.Windows.Forms.Label();
             this.produktIdTextBox = new System.Windows.Forms.TextBox();
-            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.priceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.stockDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.produkterGroupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.produktDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBindingSource)).BeginInit();
@@ -69,7 +69,7 @@
             this.produkterGroupBox.Size = new System.Drawing.Size(1175, 415);
             this.produkterGroupBox.TabIndex = 0;
             this.produkterGroupBox.TabStop = false;
-            this.produkterGroupBox.Text = "Produkter (viser alle produkter)";
+            this.produkterGroupBox.Text = "Vælg Produkt (som skal opdateres)";
             // 
             // produktDataGridView
             // 
@@ -94,6 +94,41 @@
             this.produktDataGridView.Size = new System.Drawing.Size(1163, 378);
             this.produktDataGridView.TabIndex = 0;
             this.produktDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ProduktDataGridView_CellContentClick);
+            // 
+            // descriptionDataGridViewTextBoxColumn
+            // 
+            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
+            this.descriptionDataGridViewTextBoxColumn.HeaderText = "ProduktBeskrivelse";
+            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            this.descriptionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "ProduktId";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "ProduktNavn";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // priceDataGridViewTextBoxColumn
+            // 
+            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
+            this.priceDataGridViewTextBoxColumn.HeaderText = "ProduktPris";
+            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
+            this.priceDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // stockDataGridViewTextBoxColumn
+            // 
+            this.stockDataGridViewTextBoxColumn.DataPropertyName = "Stock";
+            this.stockDataGridViewTextBoxColumn.HeaderText = "ProduktLager";
+            this.stockDataGridViewTextBoxColumn.Name = "stockDataGridViewTextBoxColumn";
+            this.stockDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // productBindingSource
             // 
@@ -246,41 +281,6 @@
             this.produktIdTextBox.Name = "produktIdTextBox";
             this.produktIdTextBox.Size = new System.Drawing.Size(345, 31);
             this.produktIdTextBox.TabIndex = 8;
-            // 
-            // descriptionDataGridViewTextBoxColumn
-            // 
-            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
-            this.descriptionDataGridViewTextBoxColumn.HeaderText = "ProduktBeskrivelse";
-            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
-            this.descriptionDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            this.idDataGridViewTextBoxColumn.HeaderText = "ProduktId";
-            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            this.idDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "ProduktNavn";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // priceDataGridViewTextBoxColumn
-            // 
-            this.priceDataGridViewTextBoxColumn.DataPropertyName = "Price";
-            this.priceDataGridViewTextBoxColumn.HeaderText = "ProduktPris";
-            this.priceDataGridViewTextBoxColumn.Name = "priceDataGridViewTextBoxColumn";
-            this.priceDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // stockDataGridViewTextBoxColumn
-            // 
-            this.stockDataGridViewTextBoxColumn.DataPropertyName = "Stock";
-            this.stockDataGridViewTextBoxColumn.HeaderText = "ProduktLager";
-            this.stockDataGridViewTextBoxColumn.Name = "stockDataGridViewTextBoxColumn";
-            this.stockDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // ProductCRUD
             // 
