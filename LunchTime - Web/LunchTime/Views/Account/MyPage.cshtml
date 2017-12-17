@@ -1,0 +1,30 @@
+﻿@model AccountViewModel
+@{
+    ViewBag.Title = "my page";
+}
+<div class="container">
+    <h3>Min side</h3>
+    <div class="dashboard-wrapper">     
+        <div class="input-group input-group-lg">
+            <span class="input-group-addon" id="sizing-addon1">UCN Email</span>
+            <input text ="Name" class="form-control" placeholder="@User.Identity.Name" aria-label="Mail" aria-describedby="sizing-addon1" readonly>
+        </div>
+        <br />
+        <div class="input-group input-group-lg">
+            <span class="input-group-addon" id="sizing-addon1">Navn</span>
+            <input text ="Currency" class="form-control" placeholder="@Model.Name" aria-label="Name" aria-describedby="sizing-addon1" readonly>
+        </div>
+        <br />
+        <div class="currency-wrapper">
+            <div class="form-group input-group input-group-lg">   
+                    <span class="input-group-addon">Balance</span>
+                    <span class="input-group-addon">@Model.Currency</span>
+                <form method="post">
+                    <span class="input-group-addon balance"><input asp-for="Currency" class="form-control" placeholder="Indtast beløb" aria-label="Search for..."></span>
+                    <span class="input-group-btn"><input type="submit" value="Godkend" class="btn btn-primary" /></span>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>

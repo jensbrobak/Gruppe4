@@ -1,0 +1,16 @@
+{
+  "ConnectionStrings": {
+    "LunchTimeConnectionString": "Server=kraka.ucn.dk;Database=dmab0916_170263;User Id=dmab0916_170263;Password=Password1!;MultipleActiveResultSets=true;"
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft": "Warning"
+    }
+  },
+  "Tokens": {
+    "Key": "qwerasdf:drtdrtjgsergsergr",
+    "Issuer": "http://localhost:8888",
+    "Audience": "audience"
+  }
+}

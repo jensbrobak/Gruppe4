@@ -1,0 +1,24 @@
+﻿<div class="row">
+    <div *ngIf="errorMessage" class="alert alert-warning">{{errorMessage}}</div>
+    <div class="col-md-6 offset-2">
+        <h2>Bekræft order</h2>
+        <table class="table table-bordered table-hover">
+            <tr *ngFor="let o of data.order.items">
+                <td>{{o.productName}} - {{o.productDescription}}</td>
+                <td>{{o.quantity}}</td>
+                <td>{{o.productPrice | currency:"kr. "}}</td>
+                <td>{{(o.productPrice * o.quantity) | currency:"kr. "}}</td>
+            </tr>
+        </table>
+    </div>
+        <div class="col-md-6 col-md-offset-2 text-right">
+            <table class="table table-condensed">
+                <tr>
+                    <td class="text-right">Total:</td>
+                    <td class="text-right">{{ data.order.total| currency:"kr. "}}</td>
+                </tr>
+            </table>
+            <button class="btn btn-success" (click)="onCheckout()">Godkend</button>
+            <a routerLink="/" class="btn btn-info">Tilføj flere varer</a>
+        </div>
+</div>
