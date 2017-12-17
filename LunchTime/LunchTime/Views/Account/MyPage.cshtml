@@ -15,13 +15,15 @@
             <input text ="Currency" class="form-control" placeholder="@Model.Name" aria-label="Name" aria-describedby="sizing-addon1" readonly>
         </div>
         <br />
-        <div class="form-group input-group input-group-lg">
-            <span class="input-group-addon">Balance</span>
-            <span class="input-group-addon">@Model.Currency</span>
-            <form method="post">
-                <span class="input-group-addon"><input asp-for="Currency" class="form-control" placeholder="Indtast beløb" aria-label="Search for..."></span>
-            <span class="input-group-btn"><input type="submit" value="Godkend" class="btn btn-primary" /></span>
-            </form>   
+        <div class="currency-wrapper">
+            <div class="form-group input-group input-group-lg">   
+                    <span class="input-group-addon">Balance</span>
+                    <span class="input-group-addon">@Model.Currency</span>
+                <form method="post">
+                    <span class="input-group-addon balance"><input asp-for="Currency" class="form-control" placeholder="Indtast beløb" aria-label="Search for..."></span>
+                    <span class="input-group-btn"><input type="submit" value="Godkend" class="btn btn-primary" /></span>
+                </form>
+            </div>
         </div>
     </div>
 
