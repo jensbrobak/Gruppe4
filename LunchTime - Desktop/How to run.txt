@@ -1,0 +1,9 @@
+Instructions on how to run solution:
+
+---------------------------
+
+1. Run project "LunchTime - Desktop" in Administrator mode
+2. Right-click on Solution under Solution Explorer and click "Set StartUp Projects..."
+3. Choose "LT.WCF.SelfHost" and "LT.WCF.DesktopClient" under "Multiple startup projects:" in that order as "Start"
+4. Click "Apply" and "OK"
+5. Click Start
