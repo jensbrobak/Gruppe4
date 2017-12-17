@@ -151,7 +151,6 @@ namespace LunchTime.Data
                     }
                     
                     AddEntity(newOrder);
-                    SaveAll();
                     dbContextTransaction.Commit();
                     _logger.LogInformation("Transaction was completed");
                 }
