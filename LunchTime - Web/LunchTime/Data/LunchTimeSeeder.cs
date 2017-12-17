@@ -21,27 +21,6 @@ namespace LunchTime.Data
 
         public async Task Seed()
         {
-            //var user1 = await _userManager.FindByEmailAsync("ps07118@ucn.dk");
-
-            //if (user1 == null)
-            //{
-            //    user1 = new Customer()
-            //    {
-            //        Id = "ps07118",
-            //        Name = "Storm Kim",
-            //        UserName = "ps07118@ucn.dk",
-            //        Email = "ps07118@ucn.dk",
-            //        Currency = 50
-            //    };
-            //    var result1 = await _userManager.CreateAsync(user1, "2105851234");
-
-            //    if (result1 != IdentityResult.Success)
-            //    {
-            //        throw new InvalidOperationException("Failed to create default user");
-            //    }
-            //}
-
-
                 _ctx.Database.EnsureCreated();
 
             var user = await _userManager.FindByEmailAsync("j@mail.com");
@@ -50,6 +29,7 @@ namespace LunchTime.Data
             {
                 user = new Customer()
                 {
+                    Id = "dmab0916",
                     Name = "John",
                     UserName = "j@mail.com",
                     Email = "j@mail.com",
@@ -66,16 +46,6 @@ namespace LunchTime.Data
 
             if (!_ctx.Products.Any())
             {
-                //Need to create sample data
-               //var customer1 = new Customer()
-               //{
-               //    Name = "John Smith",
-               //    Email = "j@mail.com",
-               //    Password = "123",
-               //    Currency = 30
-               //};
-               // _ctx.Customers.Add(customer1);
-
                 var product1 = new Product()
                 {
                     Name = "Sandwich",
@@ -108,7 +78,7 @@ namespace LunchTime.Data
                     OrderDate = DateTime.Now,
                     OrderNumber = "123",
                     Customer = user,
-                    OrderStatus = "aktiv",
+                    OrderStatus = "Aktiv",
                     Items = new List<OrderItem>()
                     {
                         new OrderItem()
@@ -123,7 +93,6 @@ namespace LunchTime.Data
                             Quantity = 3,
                         }
                     },
-                    //Customer = customer1,
                 };
                 _ctx.Orders.Add(order1);
                 _ctx.SaveChanges();

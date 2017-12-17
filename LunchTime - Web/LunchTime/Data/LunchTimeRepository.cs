@@ -61,7 +61,6 @@ namespace LunchTime.Data
                 .FirstOrDefault(); // returns the first one it finds or null if it didnt find it
         }
 
-
         public IEnumerable<Product> GetAllProducts()
         {
             try
@@ -79,20 +78,6 @@ namespace LunchTime.Data
             }
             
         }
-
-        //public Customer CustomerLoginAsync(string email, int password)
-        //{
-        //    return _ctx.Customers
-        //        .SingleOrDefault(c => c.Email.Equals(email) && c.Password == password);
-        //}
-
-        //public IEnumerable<Product> GetProductsByCatagory(string catagory)
-        //{
-        //    //TODO try/catch
-        //    return _ctx.Products
-        //        //.Where(p => p.Category == catagory)
-        //        .ToList();
-        //}
 
         public bool SaveAll()
         {
@@ -113,7 +98,7 @@ namespace LunchTime.Data
             _ctx.Add(model);
         }
 
-        public void AddOrder(Order newOrder) // Might be here to do a compare to stock and payment or call methods to do so
+        public void AddOrder(Order newOrder) // Transaction to add order to db
         {
             using (var dbContextTransaction = _ctx.Database.BeginTransaction())
             {

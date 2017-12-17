@@ -38,9 +38,6 @@ namespace LunchTime.Controllers
             _ctx = ctx;
         }
 
-
-
-        //[HttpGet("login")]
         public IActionResult Login()
         {
             if (this.User.Identity.IsAuthenticated)
@@ -76,8 +73,6 @@ namespace LunchTime.Controllers
             
             return View();
         }
-
-
 
         [Authorize]
         [HttpGet("mypage")]
