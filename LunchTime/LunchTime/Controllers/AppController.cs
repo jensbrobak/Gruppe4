@@ -32,46 +32,12 @@ namespace LunchTime.Controllers
             return View();
         }
 
-        //[HttpPost("login")]
-        //public IActionResult Login()
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        var results = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
-        //        _repository.CustomerLoginAsync(model.Username, model.Password);
-        //        Customer cur = new Customer();
-        //        cur = results;
-
-        //        if (cur != null)
-        //        {
-        //            RedirectToAction("shop", "App");
-        //        }
-        //    }
-        //    return View();
-        //}
-
         [HttpGet("shop")]
         public IActionResult Shop()
         {
-
-            //var results = _context.Products 
-            //    .OrderBy(p => p.Category)
-            //    .ToList();
-            //return View();
-            //Does the same as:
-            //var results = from p in _context.Products
-            //              orderby p.Category
-            //              select p;
-
-            //return View(results.ToList());
-
-            //var results = _repository.GetAllProducts();
-
-            //return View(results);
             return View();
         }
 
-        //[Authorize]
         [HttpGet("cart")]
         public IActionResult Cart()
         {

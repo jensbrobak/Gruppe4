@@ -12,12 +12,12 @@ namespace LunchTime
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static void Main(string[] args) //Main method
         {
             BuildWebHost(args).Run();
         }
 
-        public static IWebHost BuildWebHost(string[] args) =>
+        public static IWebHost BuildWebHost(string[] args) =>   //Build the webhost with configs
             WebHost.CreateDefaultBuilder(args)
                 .ConfigureAppConfiguration(SetupConfiguration)
                 .UseStartup<Startup>()
@@ -25,8 +25,7 @@ namespace LunchTime
 
         private static void SetupConfiguration(WebHostBuilderContext ctx, IConfigurationBuilder builder)
         {
-            // Removing the default configuration options
-            builder.Sources.Clear();
+            builder.Sources.Clear(); // Removing the default configuration options
 
             builder.AddJsonFile("config.json", false, true)
                     .AddEnvironmentVariables();

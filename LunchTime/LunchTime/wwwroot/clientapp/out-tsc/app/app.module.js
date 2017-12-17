@@ -8,7 +8,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 var platform_browser_1 = require("@angular/platform-browser");
 var core_1 = require("@angular/core");
-//import { HttpClientModule } from "@angular/common/http";
 var http_1 = require("@angular/http");
 var app_component_1 = require("./app.component");
 var productList_component_1 = require("./shop/productList.component");
@@ -41,7 +40,6 @@ AppModule = __decorate([
         ],
         imports: [
             platform_browser_1.BrowserModule,
-            //HttpClientModule
             http_1.HttpModule,
             forms_1.FormsModule,
             router_1.RouterModule.forRoot(routes, {

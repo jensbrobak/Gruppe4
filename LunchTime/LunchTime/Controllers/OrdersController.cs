@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace LunchTime.Controllers
 {
-    [Route("api/[Controller]")] // more web api design - pluralsight.com/courses/web-api-design and plurasight.com/courses/aspdotnetcore-implementing-securing-api
+    [Route("api/[Controller]")] 
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class OrdersController : Controller
     {

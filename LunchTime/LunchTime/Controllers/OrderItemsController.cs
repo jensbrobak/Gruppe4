@@ -51,7 +51,5 @@ namespace LunchTime.Controllers
             }
             return NotFound();
         }
-
-        // CRUD http://shawnw.me/corewebapi
     }
 }

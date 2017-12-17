@@ -39,7 +39,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 var AppComponent = (function () {
     function AppComponent() {
-        this.title = 'Kantinens menu';
     }
     AppComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
@@ -80,7 +79,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 
 
-//import { HttpClientModule } from "@angular/common/http";
 
 
 
@@ -111,7 +109,6 @@ var AppModule = (function () {
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-                //HttpClientModule
                 __WEBPACK_IMPORTED_MODULE_2__angular_http__["c" /* HttpModule */],
                 __WEBPACK_IMPORTED_MODULE_11__angular_forms__["a" /* FormsModule */],
                 __WEBPACK_IMPORTED_MODULE_10__angular_router__["b" /* RouterModule */].forRoot(routes, {
@@ -153,7 +150,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../ClientApp/app/checkout/checkout.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\r\n    <div *ngIf=\"errorMessage\" class=\"alert alert-warning\">{{errorMessage}}</div>\r\n    <div class=\"col-md-6 offset-2\">\r\n        <h3>Confirm Order</h3>\r\n        <table class=\"table table-bordered table-hover\">\r\n            <tr *ngFor=\"let o of data.order.items\">\r\n                <td>{{o.productName}} - {{o.productDescription}}</td>\r\n                <td>{{o.quantity}}</td>\r\n                <td>{{o.productPrice | currency:\"kr. \"}}</td>\r\n                <td>{{(o.productPrice * o.quantity) | currency:\"kr. \"}}</td>\r\n            </tr>\r\n        </table>\r\n    </div>\r\n        <div class=\"col-md-6 col-md-offset-2 text-right\">\r\n            <table class=\"table table-condensed\">\r\n                <tr>\r\n                    <td class=\"text-right\">Total:</td>\r\n                    <td class=\"text-right\">{{ data.order.total| currency:\"kr. \"}}</td>\r\n                </tr>\r\n            </table>\r\n            <button class=\"btn btn-success\" (click)=\"onCheckout()\">Complete Purchase</button>\r\n            <a routerLink=\"/\" class=\"btn btn-info\">Cancel</a>\r\n        </div>\r\n</div>"
+module.exports = "<div class=\"row\">\r\n    <div *ngIf=\"errorMessage\" class=\"alert alert-warning\">{{errorMessage}}</div>\r\n    <div class=\"col-md-6 offset-2\">\r\n        <h2>Bekræft order</h2>\r\n        <table class=\"table table-bordered table-hover\">\r\n            <tr *ngFor=\"let o of data.order.items\">\r\n                <td>{{o.productName}} - {{o.productDescription}}</td>\r\n                <td>{{o.quantity}}</td>\r\n                <td>{{o.productPrice | currency:\"kr. \"}}</td>\r\n                <td>{{(o.productPrice * o.quantity) | currency:\"kr. \"}}</td>\r\n            </tr>\r\n        </table>\r\n    </div>\r\n        <div class=\"col-md-6 col-md-offset-2 text-right\">\r\n            <table class=\"table table-condensed\">\r\n                <tr>\r\n                    <td class=\"text-right\">Total:</td>\r\n                    <td class=\"text-right\">{{ data.order.total| currency:\"kr. \"}}</td>\r\n                </tr>\r\n            </table>\r\n            <button class=\"btn btn-success\" (click)=\"onCheckout()\">Godkend</button>\r\n            <a routerLink=\"/\" class=\"btn btn-info\">Tilføj flere varer</a>\r\n        </div>\r\n</div>"
 
 /***/ }),
 
@@ -210,7 +207,7 @@ var Checkout = (function () {
 /***/ "../../../../../ClientApp/app/login/login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-4 col-md-offset-4\">\r\n            <div *ngIf=\"errorMessage\" class=\"alert alert-warning\">{{errorMessage}}</div>\r\n            <form (submit)=\"onLogin()\" #theForm=\"ngForm\" novalidate>\r\n                <div class=\"form-group\">\r\n                    <label for=\"username\">Username</label>\r\n                    <input type=\"text\" class=\"form-control\" name=\"username\" [(ngModel)]=\"creds.username\" #username=\"ngModel\" required />\r\n                    <div class=\"text-danger\" *ngIf=\"username.touched && username.invalid && username.errors.required\">Username is required!</div>\r\n                </div>\r\n                <div class=\"form-group\">\r\n                    <label for=\"password\">Password</label>\r\n                    <input type=\"password\" class=\"form-control\" name=\"password\" [(ngModel)]=\"creds.password\" #password=\"ngModel\" required />\r\n                    <div class=\"text-danger\" *ngIf=\"password.touched && password.invalid && password.errors.required\">Password is required!</div>\r\n                </div>\r\n                <div class=\"form-group\">\r\n                    <input type=\"submit\" class=\"btn btn-success\" value=\"Login\" [disabled]=\"theForm.invalid\" />\r\n                    <a routerLink=\"/\" class=\"btn btn-default\">Cancel</a>\r\n                </div>\r\n            </form>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
+module.exports = "<div class=\"container\">\r\n    <div class=\"row\">\r\n        <div class=\"col-md-4 col-md-offset-4\">\r\n            <div *ngIf=\"errorMessage\" class=\"alert alert-warning\">{{errorMessage}}</div>\r\n            <form (submit)=\"onLogin()\" #theForm=\"ngForm\" novalidate>\r\n                <div class=\"form-group\">\r\n                    <label for=\"username\">Username</label>\r\n                    <input type=\"text\" class=\"form-control\" name=\"username\" [(ngModel)]=\"creds.username\" #username=\"ngModel\" required />\r\n                    <div class=\"text-danger\" *ngIf=\"username.touched && username.invalid && username.errors.required\">Username is required!</div>\r\n                </div>\r\n                <div class=\"form-group\">\r\n                    <label for=\"password\">Password</label>\r\n                    <input type=\"password\" class=\"form-control\" name=\"password\" [(ngModel)]=\"creds.password\" #password=\"ngModel\" required />\r\n                    <div class=\"text-danger\" *ngIf=\"password.touched && password.invalid && password.errors.required\">Password is required!</div>\r\n                </div>\r\n                <div class=\"form-group\">\r\n                    <input type=\"submit\" class=\"btn btn-success\" value=\"Login\" [disabled]=\"theForm.invalid\" />\r\n                    <a routerLink=\"/\" class=\"btn btn-default\">Fortryd</a>\r\n                </div>\r\n            </form>\r\n        </div>\r\n    </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -297,16 +294,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var DataService = (function () {
-    //constructor(private http: HttpClient) {
-    //}
-    //public products = [];
-    //public loadProducts() {
-    //    return this.http.get("/api/products")
-    //        .map((data: any[]) => {
-    //            this.products = data;
-    //            return true;
-    //        });
-    //}
     function DataService(http) {
         this.http = http;
         this.token = "";
@@ -412,7 +399,7 @@ var OrderItem = (function () {
 /***/ "../../../../../ClientApp/app/shop/cart.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h3>Indkøbskurv</h3>\r\n<div>Total: {{data.order.total | currency:\"Kr. \"}}</div>\r\n<table class=\"table table-condensed table-hover\">\r\n    <thead>\r\n        <tr>\r\n            <td>Produkt</td>\r\n            <td>#</td>\r\n            <td>Pris</td>\r\n            <td>subtotal</td>\r\n        </tr>\r\n    </thead>\r\n    <tbody>\r\n        <tr *ngFor=\"let o of data.order.items\">\r\n            <td>{{o.productName}} - {{o.productDescription}}</td>\r\n            <td>{{o.quantity}}</td>\r\n            <td>{{o.productPrice | currency:\"kr. \"}}</td>\r\n            <td>{{(o.productPrice * o.quantity) | currency:\"kr. \"}}</td>\r\n        </tr>\r\n    </tbody>\r\n</table>\r\n<button class=\"btn btn-success\" *ngIf=\"data.order.items.length > 0\" (click)=\"onCheckout()\">Checkout</button>"
+module.exports = "<h3>Indkøbskurv</h3>\r\n<div>Total: {{data.order.total | currency:\"Kr. \"}}</div>\r\n<table class=\"table table-condensed table-hover\">\r\n    <thead>\r\n        <tr>\r\n            <td>Produkt</td>\r\n            <td>#</td>\r\n            <td>Pris</td>\r\n            <td>subtotal</td>\r\n        </tr>\r\n    </thead>\r\n    <tbody>\r\n        <tr *ngFor=\"let o of data.order.items\">\r\n            <td>{{o.productName}} - {{o.productDescription}}</td>\r\n            <td>{{o.quantity}}</td>\r\n            <td>{{o.productPrice | currency:\"kr. \"}}</td>\r\n            <td>{{(o.productPrice * o.quantity) | currency:\"kr. \"}}</td>\r\n        </tr>\r\n    </tbody>\r\n</table>\r\n<button class=\"btn btn-success\" *ngIf=\"data.order.items.length > 0\" (click)=\"onCheckout()\">Gå til kassen</button>"
 
 /***/ }),
 
@@ -469,7 +456,7 @@ var Cart = (function () {
 /***/ "../../../../../ClientApp/app/shop/productList.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--<div class=\"row\">-->\r\n    \r\n    <!--<div class=\"product\">-->\r\n        <!--<div class=\"row\">\r\n            <div class=\"col-md-4\">\r\n                <div class=\"product-info\" *ngFor=\"let p of products\">\r\n                    <h4>{{p.name}}</h4>\r\n                    <p>{{p.description}}</p>\r\n                </div>\r\n            </div>\r\n            <div class=\"col-md-auto\">\r\n                <div class=\"price\"><p>{{p.price | currency:\"Kr. \"}}</p></div>\r\n            </div>\r\n            <div class=\"col col-lg-2\">\r\n                <div class=\"add-to-cart\">\r\n                    <button class=\"btn btn-primary my-2 my-sm-0\" type=\"submit\">+</button>\r\n                </div>\r\n            </div>\r\n        </div>-->\r\n    <!--</div>-->\r\n    \r\n<!--</div>-->\r\n\r\n<div class=\"row\">\r\n\r\n    <div class=\"product-info col-md-4\" *ngFor=\"let p of products\">\r\n        <div class=\"product-name\"><h3>{{p.name}}</h3></div>\r\n        <div>{{p.description}}</div>\r\n        <div>{{p.price | currency:\"Kr. \"}}</div>\r\n        <button id=\"buyButton\" class=\"btn btn-success btn-sm pull-left\" (click)=\"addProduct(p)\">Tilføj</button>\r\n    </div>\r\n\r\n</div>"
+module.exports = "<div class=\"row\">\r\n\r\n    <div class=\"product-info col-md-4\" *ngFor=\"let p of products\">\r\n        <div class=\"product-name\"><h3>{{p.name}}</h3></div>\r\n        <div>{{p.description}}</div>\r\n        <div>{{p.price | currency:\"Kr. \"}}</div>\r\n        <button id=\"buyButton\" class=\"btn btn-success btn-sm pull-left\" (click)=\"addProduct(p)\">Tilføj</button>\r\n    </div>\r\n\r\n</div>"
 
 /***/ }),
 
@@ -541,6 +528,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 var Shop = (function () {
     function Shop() {
+        this.title = 'Kantinens menu';
     }
     Shop = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({

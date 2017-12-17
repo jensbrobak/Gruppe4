@@ -1,6 +1,6 @@
 {
   "ConnectionStrings": {
-    "LunchTimeConnectionString": "server=STORM\\SQLEXPRESS;Database=LunchTimeDb;Integrated Security=true;MultipleActiveResultSets=true;"
+    "LunchTimeConnectionString": "Server=kraka.ucn.dk;Database=dmab0916_170263;User Id=dmab0916_170263;Password=Password1!;MultipleActiveResultSets=true;"
   },
   "Logging": {
     "LogLevel": {

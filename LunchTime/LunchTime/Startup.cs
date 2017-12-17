@@ -34,7 +34,7 @@ namespace LunchTime
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddIdentity<Customer, IdentityRole>(cfg => 
+            services.AddIdentity<Customer, IdentityRole>(cfg =>     //configs to Identity
             {
                 cfg.User.RequireUniqueEmail = true;
                 cfg.Password.RequireNonAlphanumeric = false;
@@ -43,7 +43,7 @@ namespace LunchTime
             })
                 .AddEntityFrameworkStores<LunchTimeContext>(); // how to connect to db
 
-            services.AddAuthentication()
+            services.AddAuthentication()    //Cookie and token authentication
                 .AddCookie()
                 .AddJwtBearer(cfg =>
                 {
@@ -57,7 +57,7 @@ namespace LunchTime
                     
                 });
 
-            services.AddDbContext<LunchTimeContext>(cfg => 
+            services.AddDbContext<LunchTimeContext>(cfg =>      //config to connect to db
             {
                 cfg.UseSqlServer(_config.GetConnectionString("LunchTimeConnectionString"));
             });

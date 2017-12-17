@@ -1,5 +1,3 @@
 email: j@mail.com
 password: 1234567980
 
-ps07118@ucn.dk
-2105851234

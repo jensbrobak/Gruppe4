@@ -10,21 +10,6 @@ import { Order, OrderItem} from "./order";
 @Injectable()
 export class DataService {
 
-    //constructor(private http: HttpClient) {
-
-    //}
-
-    //public products = [];
-
-    //public loadProducts() {
-    //    return this.http.get("/api/products")
-    //        .map((data: any[]) => {
-    //            this.products = data;
-    //            return true;
-    //        });
-    //}
-
-
     constructor(private http: Http) {
 
     }

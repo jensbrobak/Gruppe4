@@ -15,16 +15,6 @@ var http_1 = require("@angular/http");
 require("rxjs/add/operator/map");
 var order_1 = require("./order");
 var DataService = (function () {
-    //constructor(private http: HttpClient) {
-    //}
-    //public products = [];
-    //public loadProducts() {
-    //    return this.http.get("/api/products")
-    //        .map((data: any[]) => {
-    //            this.products = data;
-    //            return true;
-    //        });
-    //}
     function DataService(http) {
         this.http = http;
         this.token = "";

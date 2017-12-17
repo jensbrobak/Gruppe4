@@ -9,20 +9,6 @@ import { Product } from "../shared/product";
 })
 export class ProductList implements OnInit {
 
-    //constructor(private data: DataService) {
-    //}
-
-    //public products = [];
-
-    //ngOnInit() {
-    //    this.data.loadProducts()
-    //        .subscribe(success => {
-    //            if (success) {
-    //                this.products = this.data.products;
-    //            }
-    //        })
-    //}
-
     public products: Product[];
 
     constructor(private data: DataService) {
